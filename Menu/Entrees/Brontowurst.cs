@@ -1,49 +1,86 @@
-﻿using System;
+﻿/* Brontowurst.cs
+ * Author: Justin Schieber
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace DinoDiner.Menu.Entrees
 {
+    /// <summary>
+    /// The menu item Brontowurst and its customizations.
+    /// </summary>
     public class Brontowurst
     {
+        /// <summary>
+        /// The price of the Brontowurst.
+        /// </summary>
         public double Price { get; set; }
+        /// <summary>
+        /// The number of calories in the Brontowurst.
+        /// </summary>
         public uint Calories { get; set; }
 
-        private bool bun = true;
-        private bool peppers = true;
-        private bool onion = true;
+        /// <summary>
+        /// Whether or not the Brontowurst has a bun.
+        /// </summary>
+        private bool Bun = true;
+        /// <summary>
+        /// Whether or not the Brontowurst has peppers.
+        /// </summary>
+        private bool Peppers = true;
+        /// <summary>
+        /// Whether or not the Brontowurst has onion.
+        /// </summary>
+        private bool Onion = true;
 
+        /// <summary>
+        /// The ingredients in the Brontowurst.
+        /// </summary>
         public List<string> Ingredients
         {
             get
             {
                 List<string> ingredients = new List<string>() { "Brautwurst" };
-                if (bun) ingredients.Add("Whole Wheat Bun");
-                if (peppers) ingredients.Add("Peppers");
-                if (onion) ingredients.Add("Onion");
+                if (Bun) ingredients.Add("Whole Wheat Bun");
+                if (Peppers) ingredients.Add("Peppers");
+                if (Onion) ingredients.Add("Onion");
                 return ingredients;
             }
         }
 
+        /// <summary>
+        /// Constructs a new Brontowurst.
+        /// </summary>
         public Brontowurst()
         {
             this.Price = 5.36;
             this.Calories = 498;
         }
 
+        /// <summary>
+        /// Removes the bun from the Brontowurst.
+        /// </summary>
         public void HoldBun()
         {
-            this.bun = false;
+            this.Bun = false;
         }
 
+        /// <summary>
+        /// Removes the peppers from the Brontowurst.
+        /// </summary>
         public void HoldPeppers()
         {
-            this.peppers = false;
+            this.Peppers = false;
         }
 
+        /// <summary>
+        /// Removes the onion from the Brontowurst.
+        /// </summary>
         public void HoldOnion()
         {
-            this.onion = false;
+            this.Onion = false;
         }
     }
 }
