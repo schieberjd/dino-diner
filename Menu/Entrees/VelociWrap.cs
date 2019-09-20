@@ -11,17 +11,8 @@ namespace DinoDiner.Menu.Entrees
     /// <summary>
     /// The menu item VelociWrap and its customizations.
     /// </summary>
-    public class VelociWrap
+    public class VelociWrap : Entree
     {
-        /// <summary>
-        /// The price of the VelociWrap.
-        /// </summary>
-        public double Price { get; set; }
-        /// <summary>
-        /// The number of calories in the VelociWrap.
-        /// </summary>
-        public uint Calories { get; set; }
-
         /// <summary>
         /// Whether or not the VelociWrap has dressing.
         /// </summary>
@@ -38,7 +29,7 @@ namespace DinoDiner.Menu.Entrees
         /// <summary>
         /// The ingredients in the VelociWrap.
         /// </summary>
-        public List<string> Ingredients
+        public override List<string> Ingredients
         {
             get
             {

@@ -11,17 +11,8 @@ namespace DinoDiner.Menu.Entrees
     /// <summary>
     /// The menu item Brontowurst and its customizations.
     /// </summary>
-    public class Brontowurst
+    public class Brontowurst : Entree
     {
-        /// <summary>
-        /// The price of the Brontowurst.
-        /// </summary>
-        public double Price { get; set; }
-        /// <summary>
-        /// The number of calories in the Brontowurst.
-        /// </summary>
-        public uint Calories { get; set; }
-
         /// <summary>
         /// Whether or not the Brontowurst has a bun.
         /// </summary>
@@ -38,7 +29,7 @@ namespace DinoDiner.Menu.Entrees
         /// <summary>
         /// The ingredients in the Brontowurst.
         /// </summary>
-        public List<string> Ingredients
+        public override List<string> Ingredients
         {
             get
             {

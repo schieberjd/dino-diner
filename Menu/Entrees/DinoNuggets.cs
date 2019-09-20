@@ -11,17 +11,8 @@ namespace DinoDiner.Menu.Entrees
     /// <summary>
     /// The menu item Dino Nuggets and its customizations.
     /// </summary>
-    public class DinoNuggets
+    public class DinoNuggets : Entree
     {
-        /// <summary>
-        /// The price of the Dino Nuggets.
-        /// </summary>
-        public double Price { get; set; }
-        /// <summary>
-        /// The number of calories in the Dino Nuggets.
-        /// </summary>
-        public uint Calories { get; set; }
-
         /// <summary>
         /// The amount of additional nuggets ordered on top of six.
         /// </summary>
@@ -30,7 +21,7 @@ namespace DinoDiner.Menu.Entrees
         /// <summary>
         /// The ingredients in the Dino Nuggets.
         /// </summary>
-        public List<string> Ingredients
+        public override List<string> Ingredients
         {
             get
             {

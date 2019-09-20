@@ -12,7 +12,7 @@ namespace DinoDiner.Menu.Entrees
     /// <summary>
     /// The menu item PrehistoricPBJ and its customizations.
     /// </summary>
-    public class PrehistoricPBJ
+    public class PrehistoricPBJ : Entree
     {
         /// <summary>
         /// Whether or not the PrehistoricPBJ has peanut butter.
@@ -24,18 +24,9 @@ namespace DinoDiner.Menu.Entrees
         private bool Jelly = true;
 
         /// <summary>
-        /// The price of the PrehistoricPBJ.
-        /// </summary>
-        public double Price { get; set; }
-        /// <summary>
-        /// The number of calories in the PrehistoricPBJ.
-        /// </summary>
-        public uint Calories { get; set; }
-
-        /// <summary>
         /// The ingredients in the PrehistoricPBJ.
         /// </summary>
-        public List<string> Ingredients
+        public override List<string> Ingredients
         {
             get
             {
