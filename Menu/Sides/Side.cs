@@ -6,19 +6,10 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using DinoDiner.Menu;
 
 namespace DinoDiner.Menu.Sides
 {
-    /// <summary>
-    /// The size options for each side.
-    /// </summary>
-    public enum Size
-    {
-        Small,
-        Medium, 
-        Large
-    }
-
     /// <summary>
     /// The abstract class that each side class inherits.
     /// </summary>
@@ -43,6 +34,5 @@ namespace DinoDiner.Menu.Sides
         /// Gets or sets the size
         /// </summary>
         public abstract Size Size { get; set; }
-
     }
 }

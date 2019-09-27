@@ -16,19 +16,19 @@ namespace DinoDiner.Menu.Entrees
         /// <summary>
         /// Whether or not the Steakosaurus Burger has a bun.
         /// </summary>
-        private bool Bun = true;
+        private bool bun = true;
         /// <summary>
         /// Whether or not the Steakosaurus Burger has pickle.
         /// </summary>
-        private bool Pickle = true;
+        private bool pickle = true;
         /// <summary>
         /// Whether or not the Steakosaurus Burger has mustard.
         /// </summary>
-        private bool Mustard = true;
+        private bool mustard = true;
         /// <summary>
         /// Whether or not the Steakosaurus Burger has ketchup.
         /// </summary>
-        private bool Ketchup = true;
+        private bool ketchup = true;
 
         /// <summary>
         /// The ingredients in the Steakosaurus Burger.
@@ -38,10 +38,10 @@ namespace DinoDiner.Menu.Entrees
             get
             {
                 List<string> ingredients = new List<string>() { "Steakburger Pattie" };
-                if (Bun) ingredients.Add("Whole Wheat Bun");
-                if (Pickle) ingredients.Add("Pickle");
-                if (Mustard) ingredients.Add("Mustard");
-                if (Ketchup) ingredients.Add("Ketchup");
+                if (bun) ingredients.Add("Whole Wheat Bun");
+                if (pickle) ingredients.Add("Pickle");
+                if (mustard) ingredients.Add("Mustard");
+                if (ketchup) ingredients.Add("Ketchup");
                 return ingredients;
             }
         }
@@ -60,7 +60,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldBun()
         {
-            this.Bun = false;
+            this.bun = false;
         }
 
         /// <summary>
@@ -68,7 +68,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldPickle()
         {
-            this.Pickle = false;
+            this.pickle = false;
         }
 
         /// <summary>
@@ -76,7 +76,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldKetchup()
         {
-            this.Ketchup = false;
+            this.ketchup = false;
         }
 
         /// <summary>
@@ -84,7 +84,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldMustard()
         {
-            this.Mustard = false;
+            this.mustard = false;
         }
     }
 }

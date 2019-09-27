@@ -16,7 +16,7 @@ namespace DinoDiner.Menu.Entrees
         /// <summary>
         /// The amount of additional nuggets ordered on top of six.
         /// </summary>
-        private int AdditionalNuggets;
+        private int additionalNuggets;
 
         /// <summary>
         /// The ingredients in the Dino Nuggets.
@@ -26,7 +26,7 @@ namespace DinoDiner.Menu.Entrees
             get
             {
                 List<string> ingredients = new List<string>() { "Chicken Nugget", "Chicken Nugget", "Chicken Nugget", "Chicken Nugget", "Chicken Nugget", "Chicken Nugget" };
-                for (int i = 0; i < this.AdditionalNuggets; i++)
+                for (int i = 0; i < this.additionalNuggets; i++)
                 {
                     ingredients.Add("Chicken Nugget");
                 }
@@ -48,7 +48,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void AddNugget()
         {
-            this.AdditionalNuggets++;
+            this.additionalNuggets++;
             this.Price += .25;
             this.Calories += 59;
         }

@@ -16,15 +16,15 @@ namespace DinoDiner.Menu.Entrees
         /// <summary>
         /// Whether or not the Brontowurst has a bun.
         /// </summary>
-        private bool Bun = true;
+        private bool bun = true;
         /// <summary>
         /// Whether or not the Brontowurst has peppers.
         /// </summary>
-        private bool Peppers = true;
+        private bool peppers = true;
         /// <summary>
         /// Whether or not the Brontowurst has onion.
         /// </summary>
-        private bool Onion = true;
+        private bool onion = true;
 
         /// <summary>
         /// The ingredients in the Brontowurst.
@@ -34,9 +34,9 @@ namespace DinoDiner.Menu.Entrees
             get
             {
                 List<string> ingredients = new List<string>() { "Brautwurst" };
-                if (Bun) ingredients.Add("Whole Wheat Bun");
-                if (Peppers) ingredients.Add("Peppers");
-                if (Onion) ingredients.Add("Onion");
+                if (bun) ingredients.Add("Whole Wheat Bun");
+                if (peppers) ingredients.Add("Peppers");
+                if (onion) ingredients.Add("Onion");
                 return ingredients;
             }
         }
@@ -55,7 +55,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldBun()
         {
-            this.Bun = false;
+            this.bun = false;
         }
 
         /// <summary>
@@ -63,7 +63,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldPeppers()
         {
-            this.Peppers = false;
+            this.peppers = false;
         }
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldOnion()
         {
-            this.Onion = false;
+            this.onion = false;
         }
     }
 }

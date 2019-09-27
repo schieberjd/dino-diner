@@ -17,11 +17,11 @@ namespace DinoDiner.Menu.Entrees
         /// <summary>
         /// Whether or not the PrehistoricPBJ has peanut butter.
         /// </summary>
-        private bool PeanutButter = true;
+        private bool peanutButter = true;
         /// <summary>
         /// Whether or not the PrehistoricPBJ has jelly.
         /// </summary>
-        private bool Jelly = true;
+        private bool jelly = true;
 
         /// <summary>
         /// The ingredients in the PrehistoricPBJ.
@@ -31,8 +31,8 @@ namespace DinoDiner.Menu.Entrees
             get
             {
                 List<string> ingredients = new List<string>() { "Bread" };
-                if (PeanutButter) ingredients.Add("Peanut Butter");
-                if (Jelly) ingredients.Add("Jelly");
+                if (peanutButter) ingredients.Add("Peanut Butter");
+                if (jelly) ingredients.Add("Jelly");
                 return ingredients;
             }
         }
@@ -51,7 +51,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldPeanutButter()
         {
-            this.PeanutButter = false;
+            this.peanutButter = false;
         }
 
         /// <summary>
@@ -59,7 +59,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldJelly()
         {
-            this.Jelly = false;
+            this.jelly = false;
         }
     }
 }

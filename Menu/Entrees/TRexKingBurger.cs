@@ -16,35 +16,35 @@ namespace DinoDiner.Menu.Entrees
         /// <summary>
         /// Whether or not the T-Rex King Burger has a bun.
         /// </summary>
-        private bool Bun = true;
+        private bool bun = true;
         /// <summary>
         /// Whether or not the T-Rex King Burger has lettuce.
         /// </summary>
-        private bool Lettuce = true;
+        private bool lettuce = true;
         /// <summary>
         /// Whether or not the T-Rex King Burger has tomato.
         /// </summary>
-        private bool Tomato = true;
+        private bool tomato = true;
         /// <summary>
         /// Whether or not the T-Rex King Burger has onion.
         /// </summary>
-        private bool Onion = true;
+        private bool onion = true;
         /// <summary>
         /// Whether or not the T-Rex King Burger has pickle.
         /// </summary>
-        private bool Pickle = true;
+        private bool pickle = true;
         /// <summary>
         /// Whether or not the T-Rex King Burger has ketchup.
         /// </summary>
-        private bool Ketchup = true;
+        private bool ketchup = true;
         /// <summary>
         /// Whether or not the T-Rex King Burger has mustard.
         /// </summary>
-        private bool Mustard = true;
+        private bool mustard = true;
         /// <summary>
         /// Whether or not the T-Rex King Burger has mayo.
         /// </summary>
-        private bool Mayo = true;
+        private bool mayo = true;
 
         /// <summary>
         /// The ingredients in the T-Rex King Burger.
@@ -54,14 +54,14 @@ namespace DinoDiner.Menu.Entrees
             get
             {
                 List<string> ingredients = new List<string>() { "Steakburger Pattie", "Steakburger Pattie", "Steakburger Pattie" };
-                if (Bun) ingredients.Add("Whole Wheat Bun");
-                if (Lettuce) ingredients.Add("Lettuce");
-                if (Tomato) ingredients.Add("Tomato");
-                if (Onion) ingredients.Add("Onion");
-                if (Pickle) ingredients.Add("Pickle");
-                if (Ketchup) ingredients.Add("Ketchup");
-                if (Mustard) ingredients.Add("Mustard");
-                if (Mayo) ingredients.Add("Mayo");
+                if (bun) ingredients.Add("Whole Wheat Bun");
+                if (lettuce) ingredients.Add("Lettuce");
+                if (tomato) ingredients.Add("Tomato");
+                if (onion) ingredients.Add("Onion");
+                if (pickle) ingredients.Add("Pickle");
+                if (ketchup) ingredients.Add("Ketchup");
+                if (mustard) ingredients.Add("Mustard");
+                if (mayo) ingredients.Add("Mayo");
                 return ingredients;
             }
         }
@@ -80,7 +80,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldBun()
         {
-            this.Bun = false;
+            this.bun = false;
         }
 
         /// <summary>
@@ -88,7 +88,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldLettuce()
         {
-            this.Lettuce = false;
+            this.lettuce = false;
         }
 
         /// <summary>
@@ -96,7 +96,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldTomato()
         {
-            this.Tomato = false;
+            this.tomato = false;
         }
 
         /// <summary>
@@ -104,7 +104,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldOnion()
         {
-            this.Onion = false;
+            this.onion = false;
         }
 
         /// <summary>
@@ -112,7 +112,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldPickle()
         {
-            this.Pickle = false;
+            this.pickle = false;
         }
 
         /// <summary>
@@ -120,7 +120,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldKetchup()
         {
-            this.Ketchup = false;
+            this.ketchup = false;
         }
 
         /// <summary>
@@ -128,7 +128,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldMustard()
         {
-            this.Mustard = false;
+            this.mustard = false;
         }
 
         /// <summary>
@@ -136,7 +136,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldMayo()
         {
-            this.Mayo = false;
+            this.mayo = false;
         }
     }
 }

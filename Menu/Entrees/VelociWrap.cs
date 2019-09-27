@@ -16,15 +16,15 @@ namespace DinoDiner.Menu.Entrees
         /// <summary>
         /// Whether or not the VelociWrap has dressing.
         /// </summary>
-        private bool Dressing = true;
+        private bool dressing = true;
         /// <summary>
         /// Whether or not the VelociWrap has lettuce.
         /// </summary>
-        private bool Lettuce = true;
+        private bool lettuce = true;
         /// <summary>
         /// Whether or not the VelociWrap has cheese.
         /// </summary>
-        private bool Cheese = true;
+        private bool cheese = true;
 
         /// <summary>
         /// The ingredients in the VelociWrap.
@@ -34,9 +34,9 @@ namespace DinoDiner.Menu.Entrees
             get
             {
                 List<string> ingredients = new List<string>() { "Flour Tortilla", "Chicken Breast" };
-                if (Dressing) ingredients.Add("Ceasar Dressing");
-                if (Lettuce) ingredients.Add("Romaine Lettuce");
-                if (Cheese) ingredients.Add("Parmesan Cheese");
+                if (dressing) ingredients.Add("Ceasar Dressing");
+                if (lettuce) ingredients.Add("Romaine Lettuce");
+                if (cheese) ingredients.Add("Parmesan Cheese");
                 return ingredients;
             }
         }
@@ -55,7 +55,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldDressing()
         {
-            this.Dressing = false;
+            this.dressing = false;
         }
 
         /// <summary>
@@ -63,7 +63,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldLettuce()
         {
-            this.Lettuce = false;
+            this.lettuce = false;
         }
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldCheese()
         {
-            this.Cheese = false;
+            this.cheese = false;
         }
     }
 }
