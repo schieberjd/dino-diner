@@ -1,4 +1,4 @@
-﻿/* JurrasicJava.cs
+﻿/* JurassicJava.cs
  * Author: Justin Schieber
  */
 
@@ -6,15 +6,15 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
     /// <summary>
-    /// The class for the menu item JurrasicJava
+    /// The class for the menu item JurassicJava
     /// </summary>
-    public class JurrasicJava : Drink
+    public class JurassicJava : Drink, IMenuItem
     {
         /// <summary>
-        /// The size of the JurrasicJava
+        /// The size of the JurassicJava
         /// </summary>
         private Size size;
 
@@ -26,7 +26,21 @@ namespace DinoDiner.Menu.Drinks
         /// <summary>
         /// Whether or not the coffee is decalf
         /// </summary>
-        public bool Decalf { get; set; } = false;
+        public bool Decaf { get; set; } = false;
+
+        /// <summary>
+        /// The ingredients of the current menu item
+        /// </summary>
+        public override List<string> Ingredients
+        {
+            get
+            {
+                List<string> ingredients = new List<string>();
+                ingredients.Add("Water");
+                ingredients.Add("Coffee");
+                return ingredients;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the size of the item and the corresponding values
@@ -76,14 +90,23 @@ namespace DinoDiner.Menu.Drinks
         }
 
         /// <summary>
-        /// Constructs a new JurrasicJava
+        /// Constructs a new JurassicJava
         /// </summary>
-        public JurrasicJava()
+        public JurassicJava()
         {
             this.Price = 0.59;
             this.Calories = 2;
             this.Ice = false;
-            this.Ingredients = new List<string>() { "Water", "Coffee" };
+        }
+
+        /// <summary>
+        /// Returns the name of the menu item in string format
+        /// </summary>
+        /// <returns>The name of the menu item</returns>
+        public override string ToString()
+        {
+            if (Decaf) return size.ToString() + " Decaf Jurassic Java";
+            else return size.ToString() + " Jurassic Java";
         }
     }
 }

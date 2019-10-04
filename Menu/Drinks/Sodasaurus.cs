@@ -6,12 +6,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// The class for the menu item Sodasaurus
     /// </summary>
-    public class Sodasaurus : Drink
+    public class Sodasaurus : Drink, IMenuItem
     {
         /// <summary>
         /// The size of the Sodasaurus
@@ -22,6 +22,21 @@ namespace DinoDiner.Menu.Drinks
         /// The flavor of the Sodasaurus
         /// </summary>
         public SodasaurusFlavor Flavor { get; set; }
+
+        /// <summary>
+        /// The ingredients of the current menu item
+        /// </summary>
+        public override List<string> Ingredients
+        {
+            get
+            {
+                List<string> ingredients = new List<string>();
+                ingredients.Add("Water");
+                ingredients.Add("Natural Flavors");
+                ingredients.Add("Cane Sugar");
+                return ingredients;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the size of the item and the corresponding values
@@ -61,7 +76,15 @@ namespace DinoDiner.Menu.Drinks
         {
             this.Price = 1.50;
             this.Calories = 112;
-            this.Ingredients = new List<string>() { "Water", "Natural Flavors", "Cane Sugar" };
+        }
+
+        /// <summary>
+        /// Returns the name of the menu item in string format
+        /// </summary>
+        /// <returns>The name of the menu item</returns>
+        public override string ToString()
+        {
+            return size.ToString() + " " + Flavor.ToString() + " Sodasaurus";
         }
     }
 }

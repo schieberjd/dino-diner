@@ -7,17 +7,32 @@ using System.Collections.Generic;
 using System.Text;
 using DinoDiner.Menu;
 
-namespace DinoDiner.Menu.Sides
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// A class that represents the side item MeteorMacAndCheese.
     /// </summary>
-    public class MeteorMacAndCheese : Side
+    public class MeteorMacAndCheese : Side, IMenuItem
     {
         /// <summary>
         /// The size of the item.
         /// </summary>
         private Size size;
+
+        /// <summary>
+        /// The ingredients of the current menu item
+        /// </summary>
+        public override List<string> Ingredients
+        {
+            get
+            {
+                List<string> ingredients = new List<string>();
+                ingredients.Add("Macaroni Noodles");
+                ingredients.Add("Cheese Product");
+                ingredients.Add("Pork Sausage");
+                return ingredients;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the size of the item and the corresponding values.
@@ -57,7 +72,15 @@ namespace DinoDiner.Menu.Sides
         {
             this.Price = 0.99;
             this.Calories = 420;
-            this.Ingredients = new List<string>() { "Macaroni Noodles", "Cheese Product", "Pork Sausage" };
+        }
+
+        /// <summary>
+        /// Returns the name of the menu item in string format
+        /// </summary>
+        /// <returns>The name of the menu item</returns>
+        public override string ToString()
+        {
+            return size.ToString() + " Meteor Mac and Cheese";
         }
     }
 }

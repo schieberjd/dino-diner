@@ -6,12 +6,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// The class for the menu item Tyrannotea
     /// </summary>
-    public class Tyrannotea : Drink
+    public class Tyrannotea : Drink, IMenuItem
     {
         /// <summary>
         /// The size of the Tyrannotea
@@ -136,6 +136,16 @@ namespace DinoDiner.Menu.Drinks
         {
             this.Price = 0.99;
             this.Calories = 8;
+        }
+
+        /// <summary>
+        /// Returns the name of the menu item in string format
+        /// </summary>
+        /// <returns>The name of the menu item</returns>
+        public override string ToString()
+        {
+            if (sweet) return size.ToString() + " Sweet Tyrannotea";
+            else return size.ToString() + " Tyrannotea";
         }
     }
 }

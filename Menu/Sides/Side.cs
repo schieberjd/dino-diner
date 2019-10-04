@@ -8,12 +8,12 @@ using System.Collections.Generic;
 using System.Text;
 using DinoDiner.Menu;
 
-namespace DinoDiner.Menu.Sides
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// The abstract class that each side class inherits.
     /// </summary>
-    public abstract class Side
+    public abstract class Side : IMenuItem
     {
         /// <summary>
         /// Gets and sets the price
@@ -28,7 +28,7 @@ namespace DinoDiner.Menu.Sides
         /// <summary>
         /// Gets the ingredients list
         /// </summary>
-        public List<string> Ingredients { get; protected set; }
+        public virtual List<string> Ingredients { get; protected set; }
 
         /// <summary>
         /// Gets or sets the size

@@ -1,4 +1,4 @@
-﻿/* JurrasicJavaTest.cs
+﻿/* JurassicJavaTest.cs
  * Author: Justin Schieber
  */
 
@@ -7,7 +7,6 @@ using System.Collections.Generic;
 using System.Text;
 using Xunit;
 using DinoDiner.Menu;
-using DinoDiner.Menu.Drinks;
 
 namespace MenuTest.Drinks
 {
@@ -22,7 +21,7 @@ namespace MenuTest.Drinks
         [Fact]
         public void ShouldHaveCorrectDefaultPrice()
         {
-            JurrasicJava java = new JurrasicJava();
+            JurassicJava java = new JurassicJava();
             Assert.Equal<double>(0.59, java.Price);
         }
 
@@ -32,7 +31,7 @@ namespace MenuTest.Drinks
         [Fact]
         public void ShouldHaveCorrectDefaultCalories()
         {
-            JurrasicJava java = new JurrasicJava();
+            JurassicJava java = new JurassicJava();
             Assert.Equal<uint>(2, java.Calories);
         }
 
@@ -42,7 +41,7 @@ namespace MenuTest.Drinks
         [Fact]
         public void ShouldHaveDefaultIce()
         {
-            JurrasicJava java = new JurrasicJava();
+            JurassicJava java = new JurassicJava();
             Assert.False(java.Ice);
         }
 
@@ -52,7 +51,7 @@ namespace MenuTest.Drinks
         [Fact]
         public void ShouldHaveCorrectDefaultSize()
         {
-            JurrasicJava java = new JurrasicJava();
+            JurassicJava java = new JurassicJava();
             Assert.Equal<Size>(Size.Small, java.Size);
         }
 
@@ -62,7 +61,7 @@ namespace MenuTest.Drinks
         [Fact]
         public void ShouldHaveCorrectDefaultRoomForCreamProperty()
         {
-            JurrasicJava java = new JurrasicJava();
+            JurassicJava java = new JurassicJava();
             Assert.False(java.RoomForCream);
         }
 
@@ -72,7 +71,7 @@ namespace MenuTest.Drinks
         [Fact]
         public void ShouldHaveCorrectPriceForSmall()
         {
-            JurrasicJava java = new JurrasicJava();
+            JurassicJava java = new JurassicJava();
             java.Size = Size.Medium;
             java.Size = Size.Small;
             Assert.Equal<double>(0.59, java.Price);
@@ -84,7 +83,7 @@ namespace MenuTest.Drinks
         [Fact]
         public void ShouldHaveCorrectPriceForMedium()
         {
-            JurrasicJava java = new JurrasicJava();
+            JurassicJava java = new JurassicJava();
             java.Size = Size.Medium;
             Assert.Equal<double>(0.99, java.Price);
         }
@@ -95,7 +94,7 @@ namespace MenuTest.Drinks
         [Fact]
         public void ShouldHaveCorrectPriceForLarge()
         {
-            JurrasicJava java = new JurrasicJava();
+            JurassicJava java = new JurassicJava();
             java.Size = Size.Large;
             Assert.Equal<double>(1.49, java.Price);
         }
@@ -106,7 +105,7 @@ namespace MenuTest.Drinks
         [Fact]
         public void ShouldHaveCorrectCaloriesForSmall()
         {
-            JurrasicJava java = new JurrasicJava();
+            JurassicJava java = new JurassicJava();
             java.Size = Size.Medium;
             java.Size = Size.Small;
             Assert.Equal<double>(2, java.Calories);
@@ -118,7 +117,7 @@ namespace MenuTest.Drinks
         [Fact]
         public void ShouldHaveCorrectCaloriesForMedium()
         {
-            JurrasicJava java = new JurrasicJava();
+            JurassicJava java = new JurassicJava();
             java.Size = Size.Medium;
             Assert.Equal<double>(4, java.Calories);
         }
@@ -129,7 +128,7 @@ namespace MenuTest.Drinks
         [Fact]
         public void ShouldHaveCorrectCaloriesForLarge()
         {
-            JurrasicJava java = new JurrasicJava();
+            JurassicJava java = new JurassicJava();
             java.Size = Size.Large;
             Assert.Equal<double>(8, java.Calories);
         }
@@ -140,7 +139,7 @@ namespace MenuTest.Drinks
         [Fact]
         public void AddIceResultsInTrueIce()
         {
-            JurrasicJava java = new JurrasicJava();
+            JurassicJava java = new JurassicJava();
             java.AddIce();
             Assert.True(java.Ice);
         }
@@ -151,7 +150,7 @@ namespace MenuTest.Drinks
         [Fact]
         public void LeaveRoomForCreamResultsInTrueRoomForCream()
         {
-            JurrasicJava java = new JurrasicJava();
+            JurassicJava java = new JurassicJava();
             java.LeaveRoomForCream();
             Assert.True(java.RoomForCream);
         }
@@ -162,7 +161,7 @@ namespace MenuTest.Drinks
         [Fact]
         public void ShouldHaveCorrectIngedients()
         {
-            JurrasicJava java = new JurrasicJava();
+            JurassicJava java = new JurassicJava();
             Assert.Contains<string>("Water", java.Ingredients);
             Assert.Contains<string>("Coffee", java.Ingredients);
             Assert.Equal<int>(2, java.Ingredients.Count);
