@@ -5,18 +5,57 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// The class for the menu item Sodasaurus
     /// </summary>
-    public class Sodasaurus : Drink, IMenuItem
+    public class Sodasaurus : Drink, IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
         /// The size of the Sodasaurus
         /// </summary>
         private Size size;
+
+        /// <summary>
+        /// Gets the description of the menu item
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Gets the special instructions for a menu item
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!Ice) special.Add("Hold Ice");
+                return special.ToArray();
+            }
+        }
+
+        /// <summary>
+        /// The PropertyChanged event handler; notifies of changes to the Price, Description, and Special Properties
+        /// </summary>
+        public override event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Helper function for notifying of propety changes
+        /// </summary>
+        /// <param name="propertyName">The property name</param>
+        public override void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         /// <summary>
         /// The flavor of the Sodasaurus
@@ -67,6 +106,94 @@ namespace DinoDiner.Menu
             {
                 return size;
             }
+        }
+
+        /// <summary>
+        /// Makes the item small
+        /// </summary>
+        public void MakeSmall()
+        {
+            this.Size = Size.Small;
+            NotifyOfPropertyChange("Price");
+            NotifyOfPropertyChange("Description");
+        }
+
+        /// <summary>
+        /// Makes the item medium
+        /// </summary>
+        public void MakeMedium()
+        {
+            this.Size = Size.Medium;
+            NotifyOfPropertyChange("Price");
+            NotifyOfPropertyChange("Description");
+        }
+
+        /// <summary>
+        /// Makes the item large
+        /// </summary>
+        public void MakeLarge()
+        {
+            this.Size = Size.Large;
+            NotifyOfPropertyChange("Price");
+            NotifyOfPropertyChange("Description");
+        }
+
+        /// <summary>
+        /// Change the flavor of sodasaurus
+        /// </summary>
+        public void MakeCola()
+        {
+            this.Flavor = SodasaurusFlavor.Cola;
+            NotifyOfPropertyChange("Description");
+        }
+
+        /// <summary>
+        /// Change the flavor of sodasaurus
+        /// </summary>
+        public void MakeOrange()
+        {
+            this.Flavor = SodasaurusFlavor.Orange;
+            NotifyOfPropertyChange("Description");
+        }
+        /// <summary>
+        /// Change the flavor of sodasaurus
+        /// </summary>
+        public void MakeVanilla()
+        {
+            this.Flavor = SodasaurusFlavor.Vanilla;
+            NotifyOfPropertyChange("Description");
+        }
+        /// <summary>
+        /// Change the flavor of sodasaurus
+        /// </summary>
+        public void MakeChocolate()
+        {
+            this.Flavor = SodasaurusFlavor.Chocolate;
+            NotifyOfPropertyChange("Description");
+        }
+        /// <summary>
+        /// Change the flavor of sodasaurus
+        /// </summary>
+        public void MakeRootBeer()
+        {
+            this.Flavor = SodasaurusFlavor.RootBeer;
+            NotifyOfPropertyChange("Description");
+        }
+        /// <summary>
+        /// Change the flavor of sodasaurus
+        /// </summary>
+        public void MakeCherry()
+        {
+            this.Flavor = SodasaurusFlavor.Cherry;
+            NotifyOfPropertyChange("Description");
+        }
+        /// <summary>
+        /// Change the flavor of sodasaurus
+        /// </summary>
+        public void MakeLime()
+        {
+            this.Flavor = SodasaurusFlavor.Lime;
+            NotifyOfPropertyChange("Description");
         }
 
         /// <summary>

@@ -5,13 +5,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// The menu item VelociWrap and its customizations.
     /// </summary>
-    public class VelociWrap : Entree, IMenuItem
+    public class VelociWrap : Entree, IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
         /// Whether or not the VelociWrap has dressing.
@@ -25,6 +26,46 @@ namespace DinoDiner.Menu
         /// Whether or not the VelociWrap has cheese.
         /// </summary>
         private bool cheese = true;
+
+        /// <summary>
+        /// Gets the description of the menu item
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Gets the special instructions for a menu item
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!cheese) special.Add("Hold Cheese");
+                if (!dressing) special.Add("Hold Dressing");
+                if (!lettuce) special.Add("Hold Lettuce");
+                return special.ToArray();
+            }
+        }
+
+        /// <summary>
+        /// The PropertyChanged event handler; notifies of changes to the Price, Description, and Special Properties
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Helper function for notifying of propety changes
+        /// </summary>
+        /// <param name="propertyName">The property name</param>
+        public void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         /// <summary>
         /// The ingredients in the VelociWrap.
@@ -56,6 +97,7 @@ namespace DinoDiner.Menu
         public void HoldDressing()
         {
             this.dressing = false;
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>
@@ -64,6 +106,7 @@ namespace DinoDiner.Menu
         public void HoldLettuce()
         {
             this.lettuce = false;
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>
@@ -72,6 +115,7 @@ namespace DinoDiner.Menu
         public void HoldCheese()
         {
             this.cheese = false;
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>

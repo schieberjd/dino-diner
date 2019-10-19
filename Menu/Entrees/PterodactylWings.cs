@@ -5,14 +5,52 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// The menu item Pterodactyl Wings and its customizations.
     /// </summary>
-    public class PterodactylWings : Entree, IMenuItem
+    public class PterodactylWings : Entree, IMenuItem, IOrderItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// Gets the description of the menu item
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Gets the special instructions for a menu item
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                return special.ToArray();
+            }
+        }
+
+        /// <summary>
+        /// The PropertyChanged event handler; notifies of changes to the Price, Description, and Special Properties
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Helper function for notifying of propety changes
+        /// </summary>
+        /// <param name="propertyName">The property name</param>
+        public void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         /// <summary>
         /// The ingredients in the Pterodactyl Wings.
         /// </summary>

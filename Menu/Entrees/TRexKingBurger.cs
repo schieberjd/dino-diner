@@ -5,13 +5,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// The menu item T-Rex King Burger and its customizations.
     /// </summary>
-    public class TRexKingBurger : Entree, IMenuItem
+    public class TRexKingBurger : Entree, IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
         /// Whether or not the T-Rex King Burger has a bun.
@@ -45,6 +46,51 @@ namespace DinoDiner.Menu
         /// Whether or not the T-Rex King Burger has mayo.
         /// </summary>
         private bool mayo = true;
+
+        /// <summary>
+        /// Gets the description of the menu item
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Gets the special instructions for a menu item
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!bun) special.Add("Hold Bun");
+                if (!ketchup) special.Add("Hold Ketchup");
+                if (!mustard) special.Add("Hold Mustard");
+                if (!pickle) special.Add("Hold Pickles"); 
+                if (!tomato) special.Add("Hold Tomato");
+                if (!onion) special.Add("Hold Onion");
+                if (!lettuce) special.Add("Hold Lettuce");
+                if (!mayo) special.Add("Hold Mayo");
+                return special.ToArray();
+            }
+        }
+
+        /// <summary>
+        /// The PropertyChanged event handler; notifies of changes to the Price, Description, and Special Properties
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Helper function for notifying of propety changes
+        /// </summary>
+        /// <param name="propertyName">The property name</param>
+        public void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         /// <summary>
         /// The ingredients in the T-Rex King Burger.
@@ -81,6 +127,7 @@ namespace DinoDiner.Menu
         public void HoldBun()
         {
             this.bun = false;
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>
@@ -89,6 +136,7 @@ namespace DinoDiner.Menu
         public void HoldLettuce()
         {
             this.lettuce = false;
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>
@@ -97,6 +145,7 @@ namespace DinoDiner.Menu
         public void HoldTomato()
         {
             this.tomato = false;
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>
@@ -105,6 +154,7 @@ namespace DinoDiner.Menu
         public void HoldOnion()
         {
             this.onion = false;
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>
@@ -113,6 +163,7 @@ namespace DinoDiner.Menu
         public void HoldPickle()
         {
             this.pickle = false;
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>
@@ -121,6 +172,7 @@ namespace DinoDiner.Menu
         public void HoldKetchup()
         {
             this.ketchup = false;
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>
@@ -129,6 +181,7 @@ namespace DinoDiner.Menu
         public void HoldMustard()
         {
             this.mustard = false;
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>
@@ -137,6 +190,7 @@ namespace DinoDiner.Menu
         public void HoldMayo()
         {
             this.mayo = false;
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>

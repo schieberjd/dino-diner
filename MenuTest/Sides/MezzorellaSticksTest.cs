@@ -6,6 +6,101 @@ namespace MenuTest.Sides
     public class MezzorellaSticksTest
     {
         [Fact]
+        public void CorrectDefaultDescription()
+        {
+            MezzorellaSticks m = new MezzorellaSticks();
+            Assert.Equal("Small Mezzorella Sticks", m.Description);
+        }
+
+        [Fact]
+        public void CorrectMediumDescription()
+        {
+            MezzorellaSticks m = new MezzorellaSticks();
+            m.MakeMedium();
+            Assert.Equal("Medium Mezzorella Sticks", m.Description);
+        }
+
+        [Fact]
+        public void CorrectLargeDescription()
+        {
+            MezzorellaSticks m = new MezzorellaSticks();
+            m.MakeLarge();
+            Assert.Equal("Large Mezzorella Sticks", m.Description);
+        }
+
+        [Fact]
+        public void CorrectDefaultToString()
+        {
+            MezzorellaSticks m = new MezzorellaSticks();
+            Assert.Equal("Small Mezzorella Sticks", m.ToString());
+        }
+
+        [Fact]
+        public void CorrectMediumToString()
+        {
+            MezzorellaSticks m = new MezzorellaSticks();
+            m.MakeMedium();
+            Assert.Equal("Medium Mezzorella Sticks", m.ToString());
+        }
+
+        [Fact]
+        public void CorrectLargeToString()
+        {
+            MezzorellaSticks m = new MezzorellaSticks();
+            m.MakeLarge();
+            Assert.Equal("Large Mezzorella Sticks", m.ToString());
+        }
+
+        [Fact]
+        public void ShouldHaveEmptySpecialListByDeafult()
+        {
+            MezzorellaSticks m = new MezzorellaSticks();
+            Assert.Empty(m.Special);
+        }
+
+        [Fact]
+        public void MakeSmallShouldNotifyOfDescriptionPropertyChange()
+        {
+            MezzorellaSticks m = new MezzorellaSticks();
+            Assert.PropertyChanged(m, "Description", m.MakeSmall);
+        }
+
+        [Fact]
+        public void MakeSmallShouldNotifyOfPricePropertyChange()
+        {
+            MezzorellaSticks m = new MezzorellaSticks();
+            Assert.PropertyChanged(m, "Price", m.MakeSmall);
+        }
+
+        [Fact]
+        public void MakeMediumShouldNotifyOfDescriptionPropertyChange()
+        {
+            MezzorellaSticks m = new MezzorellaSticks();
+            Assert.PropertyChanged(m, "Description", m.MakeMedium);
+        }
+
+        [Fact]
+        public void MakeMediumShouldNotifyOfPricePropertyChange()
+        {
+            MezzorellaSticks m = new MezzorellaSticks();
+            Assert.PropertyChanged(m, "Price", m.MakeMedium);
+        }
+
+        [Fact]
+        public void MakeLargeShouldNotifyOfDescriptionPropertyChange()
+        {
+            MezzorellaSticks m = new MezzorellaSticks();
+            Assert.PropertyChanged(m, "Description", m.MakeLarge);
+        }
+
+        [Fact]
+        public void MakeLargeShouldNotifyOfPricePropertyChange()
+        {
+            MezzorellaSticks m = new MezzorellaSticks();
+            Assert.PropertyChanged(m, "Price", m.MakeLarge);
+        }
+
+        [Fact]
         public void ShouldHaveCorrectDefaultPrice()
         {
             MezzorellaSticks ms = new MezzorellaSticks();

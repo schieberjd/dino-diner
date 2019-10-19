@@ -6,6 +6,101 @@ namespace MenuTest.Sides
     public class FryceritopsTest
     {
         [Fact]
+        public void CorrectDefaultDescription()
+        {
+            Fryceritops f = new Fryceritops();
+            Assert.Equal("Small Fryceritops", f.Description);
+        }
+
+        [Fact]
+        public void CorrectMediumDescription()
+        {
+            Fryceritops f = new Fryceritops();
+            f.MakeMedium();
+            Assert.Equal("Medium Fryceritops", f.Description);
+        }
+
+        [Fact]
+        public void CorrectLargeDescription()
+        {
+            Fryceritops f = new Fryceritops();
+            f.MakeLarge();
+            Assert.Equal("Large Fryceritops", f.Description);
+        }
+
+        [Fact]
+        public void CorrectDefaultToString()
+        {
+            Fryceritops f = new Fryceritops();
+            Assert.Equal("Small Fryceritops", f.ToString());
+        }
+
+        [Fact]
+        public void CorrectMediumToString()
+        {
+            Fryceritops f = new Fryceritops();
+            f.MakeMedium();
+            Assert.Equal("Medium Fryceritops", f.ToString());
+        }
+
+        [Fact]
+        public void CorrectLargeToString()
+        {
+            Fryceritops f = new Fryceritops();
+            f.MakeLarge();
+            Assert.Equal("Large Fryceritops", f.ToString());
+        }
+
+        [Fact]
+        public void ShouldHaveEmptySpecialListByDeafult()
+        {
+            Fryceritops f = new Fryceritops();
+            Assert.Empty(f.Special);
+        }
+
+        [Fact]
+        public void MakeSmallShouldNotifyOfDescriptionPropertyChange()
+        {
+            Fryceritops f = new Fryceritops();
+            Assert.PropertyChanged(f, "Description", f.MakeSmall);
+        }
+
+        [Fact]
+        public void MakeSmallShouldNotifyOfPricePropertyChange()
+        {
+            Fryceritops f = new Fryceritops();
+            Assert.PropertyChanged(f, "Price", f.MakeSmall);
+        }
+
+        [Fact]
+        public void MakeMediumShouldNotifyOfDescriptionPropertyChange()
+        {
+            Fryceritops f = new Fryceritops();
+            Assert.PropertyChanged(f, "Description", f.MakeMedium);
+        }
+
+        [Fact]
+        public void MakeMediumShouldNotifyOfPricePropertyChange()
+        {
+            Fryceritops f = new Fryceritops();
+            Assert.PropertyChanged(f, "Price", f.MakeMedium);
+        }
+
+        [Fact]
+        public void MakeLargeShouldNotifyOfDescriptionPropertyChange()
+        {
+            Fryceritops f = new Fryceritops();
+            Assert.PropertyChanged(f, "Description", f.MakeLarge);
+        }
+
+        [Fact]
+        public void MakeLargeShouldNotifyOfPricePropertyChange()
+        {
+            Fryceritops f = new Fryceritops();
+            Assert.PropertyChanged(f, "Price", f.MakeLarge);
+        }
+
+        [Fact]
         public void ShouldHaveCorrectDefaultPrice()
         {
             Fryceritops ft = new Fryceritops();

@@ -5,18 +5,58 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// The class for the menu item JurassicJava
     /// </summary>
-    public class JurassicJava : Drink, IMenuItem
+    public class JurassicJava : Drink, IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
         /// The size of the JurassicJava
         /// </summary>
         private Size size;
+
+        /// <summary>
+        /// Gets the description of the menu item
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Gets the special instructions for a menu item
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (Ice) special.Add("Add Ice");
+                if (RoomForCream) special.Add("Leave Room For Cream");
+                return special.ToArray();
+            }
+        }
+
+        /// <summary>
+        /// The PropertyChanged event handler; notifies of changes to the Price, Description, and Special Properties
+        /// </summary>
+        public override event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Helper function for notifying of propety changes
+        /// </summary>
+        /// <param name="propertyName">The property name</param>
+        public override void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         /// <summary>
         /// Whether or not room should be left for cream
@@ -74,11 +114,51 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
+        /// Makes the item small
+        /// </summary>
+        public void MakeSmall()
+        {
+            this.Size = Size.Small;
+            NotifyOfPropertyChange("Price");
+            NotifyOfPropertyChange("Description");
+        }
+
+        /// <summary>
+        /// Makes the item medium
+        /// </summary>
+        public void MakeMedium()
+        {
+            this.Size = Size.Medium;
+            NotifyOfPropertyChange("Price");
+            NotifyOfPropertyChange("Description");
+        }
+
+        /// <summary>
+        /// Makes the item large
+        /// </summary>
+        public void MakeLarge()
+        {
+            this.Size = Size.Large;
+            NotifyOfPropertyChange("Price");
+            NotifyOfPropertyChange("Description");
+        }
+
+        /// <summary>
         /// Leaves room for cream in the drink
         /// </summary>
         public void LeaveRoomForCream()
         {
             this.RoomForCream = true;
+            NotifyOfPropertyChange("Special");
+        }
+
+        /// <summary>
+        /// Makes the coffee decaf
+        /// </summary>
+        public void MakeDecaf()
+        {
+            this.Decaf = true;
+            NotifyOfPropertyChange("Description");
         }
 
         /// <summary>
@@ -87,6 +167,7 @@ namespace DinoDiner.Menu
         public void AddIce()
         {
             this.Ice = true;
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>

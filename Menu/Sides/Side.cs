@@ -13,8 +13,19 @@ namespace DinoDiner.Menu
     /// <summary>
     /// The abstract class that each side class inherits.
     /// </summary>
-    public abstract class Side : IMenuItem
+    public abstract class Side : IMenuItem, IOrderItem
     {
+
+        /// <summary>
+        /// Gets the description of the order item
+        /// </summary>
+        public abstract string Description { get; }
+
+        /// <summary>
+        /// Gets the special instructions for a menu item
+        /// </summary>
+        public abstract string[] Special { get; }
+
         /// <summary>
         /// Gets and sets the price
         /// </summary>

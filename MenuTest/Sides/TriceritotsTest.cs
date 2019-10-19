@@ -6,6 +6,101 @@ namespace MenuTest.Sides
     public class TriceritotsTest
     {
         [Fact]
+        public void CorrectDefaultDescription()
+        {
+            Triceritots t = new Triceritots();
+            Assert.Equal("Small Triceritots", t.Description);
+        }
+
+        [Fact]
+        public void CorrectMediumDescription()
+        {
+            Triceritots t = new Triceritots();
+            t.MakeMedium();
+            Assert.Equal("Medium Triceritots", t.Description);
+        }
+
+        [Fact]
+        public void CorrectLargeDescription()
+        {
+            Triceritots t = new Triceritots();
+            t.MakeLarge();
+            Assert.Equal("Large Triceritots", t.Description);
+        }
+
+        [Fact]
+        public void CorrectDefaultToString()
+        {
+            Triceritots t = new Triceritots();
+            Assert.Equal("Small Triceritots", t.ToString());
+        }
+
+        [Fact]
+        public void CorrectMediumToString()
+        {
+            Triceritots t = new Triceritots();
+            t.MakeMedium();
+            Assert.Equal("Medium Triceritots", t.ToString());
+        }
+
+        [Fact]
+        public void CorrectLargeToString()
+        {
+            Triceritots t = new Triceritots();
+            t.MakeLarge();
+            Assert.Equal("Large Triceritots", t.ToString());
+        }
+
+        [Fact]
+        public void ShouldHaveEmptySpecialListByDeafult()
+        {
+            Triceritots t = new Triceritots();
+            Assert.Empty(t.Special);
+        }
+
+        [Fact]
+        public void MakeSmallShouldNotifyOfDescriptionPropertyChange()
+        {
+            Triceritots t = new Triceritots();
+            Assert.PropertyChanged(t, "Description", t.MakeSmall);
+        }
+
+        [Fact]
+        public void MakeSmallShouldNotifyOfPricePropertyChange()
+        {
+            Triceritots t = new Triceritots();
+            Assert.PropertyChanged(t, "Price", t.MakeSmall);
+        }
+
+        [Fact]
+        public void MakeMediumShouldNotifyOfDescriptionPropertyChange()
+        {
+            Triceritots t = new Triceritots();
+            Assert.PropertyChanged(t, "Description", t.MakeMedium);
+        }
+
+        [Fact]
+        public void MakeMediumShouldNotifyOfPricePropertyChange()
+        {
+            Triceritots t = new Triceritots();
+            Assert.PropertyChanged(t, "Price", t.MakeMedium);
+        }
+
+        [Fact]
+        public void MakeLargeShouldNotifyOfDescriptionPropertyChange()
+        {
+            Triceritots t = new Triceritots();
+            Assert.PropertyChanged(t, "Description", t.MakeLarge);
+        }
+
+        [Fact]
+        public void MakeLargeShouldNotifyOfPricePropertyChange()
+        {
+            Triceritots t = new Triceritots();
+            Assert.PropertyChanged(t, "Price", t.MakeLarge);
+        }
+
+        [Fact]
         public void ShouldHaveCorrectDefaultPrice()
         {
             Triceritots tt = new Triceritots();

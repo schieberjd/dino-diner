@@ -5,18 +5,60 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// The menu item Dino Nuggets and its customizations.
     /// </summary>
-    public class DinoNuggets : Entree, IMenuItem
+    public class DinoNuggets : Entree, IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
         /// The amount of additional nuggets ordered on top of six.
         /// </summary>
         private int additionalNuggets;
+
+        /// <summary>
+        /// Gets the description of the menu item
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Gets the special instructions for a menu item
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (additionalNuggets > 0)
+                {
+                    special.Add(additionalNuggets + " Extra Nuggets");
+                }
+                return special.ToArray();
+            }
+        }
+
+        /// <summary>
+        /// The PropertyChanged event handler; notifies of changes to the Price, Description, and Special Properties
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Helper function for notifying of propety changes
+        /// </summary>
+        /// <param name="propertyName">The property name</param>
+        public void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         /// <summary>
         /// The ingredients in the Dino Nuggets.
@@ -51,6 +93,8 @@ namespace DinoDiner.Menu
             this.additionalNuggets++;
             this.Price += .25;
             this.Calories += 59;
+            NotifyOfPropertyChange("Price");
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>

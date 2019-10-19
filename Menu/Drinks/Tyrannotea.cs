@@ -5,13 +5,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// The class for the menu item Tyrannotea
     /// </summary>
-    public class Tyrannotea : Drink, IMenuItem
+    public class Tyrannotea : Drink, IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
         /// The size of the Tyrannotea
@@ -22,6 +23,45 @@ namespace DinoDiner.Menu
         /// If the tea has sweetener
         /// </summary>
         private bool sweet = false;
+
+        /// <summary>
+        /// Gets the description of the menu item
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Gets the special instructions for a menu item
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!Ice) special.Add("Hold Ice");
+                if (Lemon) special.Add("Add Lemon");
+                return special.ToArray();
+            }
+        }
+
+        /// <summary>
+        /// The PropertyChanged event handler; notifies of changes to the Price, Description, and Special Properties
+        /// </summary>
+        public override event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Helper function for notifying of propety changes
+        /// </summary>
+        /// <param name="propertyName">The property name</param>
+        public override void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         /// <summary>
         /// Gets or sets if the tea has sweetener and changes the corresponding values
@@ -48,6 +88,36 @@ namespace DinoDiner.Menu
             {
                 return sweet;
             }
+        }
+
+        /// <summary>
+        /// Makes the item small
+        /// </summary>
+        public void MakeSmall()
+        {
+            this.Size = Size.Small;
+            NotifyOfPropertyChange("Price");
+            NotifyOfPropertyChange("Description");
+        }
+
+        /// <summary>
+        /// Makes the item medium
+        /// </summary>
+        public void MakeMedium()
+        {
+            this.Size = Size.Medium;
+            NotifyOfPropertyChange("Price");
+            NotifyOfPropertyChange("Description");
+        }
+
+        /// <summary>
+        /// Makes the item large
+        /// </summary>
+        public void MakeLarge()
+        {
+            this.Size = Size.Large;
+            NotifyOfPropertyChange("Price");
+            NotifyOfPropertyChange("Description");
         }
 
         /// <summary>
@@ -127,6 +197,13 @@ namespace DinoDiner.Menu
         public void AddLemon()
         {
             this.Lemon = true;
+            NotifyOfPropertyChange("Special");
+        }
+
+        public void MakeSweet()
+        {
+            this.Sweet = true;
+            NotifyOfPropertyChange("Description");
         }
 
         /// <summary>

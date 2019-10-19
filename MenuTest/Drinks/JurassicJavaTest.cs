@@ -15,6 +15,184 @@ namespace MenuTest.Drinks
     /// </summary>
     public class JurrasicJavaTest
     {
+        [Fact]
+        public void CorrectDefaultDescription()
+        {
+            JurassicJava j = new JurassicJava();
+            Assert.Equal("Small Jurassic Java", j.Description);
+        }
+
+        [Fact]
+        public void CorrectMediumDescription()
+        {
+            JurassicJava j = new JurassicJava();
+            j.Size = Size.Medium;
+            Assert.Equal("Medium Jurassic Java", j.Description);
+        }
+
+        [Fact]
+        public void CorrectLargeDescription()
+        {
+            JurassicJava j = new JurassicJava();
+            j.Size = Size.Large;
+            Assert.Equal("Large Jurassic Java", j.Description);
+        }
+
+        [Fact]
+        public void CorrectDefaultDecafDescription()
+        {
+            JurassicJava j = new JurassicJava();
+            j.MakeDecaf();
+            Assert.Equal("Small Decaf Jurassic Java", j.Description);
+        }
+
+        [Fact]
+        public void CorrectMediumDecafDescription()
+        {
+            JurassicJava j = new JurassicJava();
+            j.MakeDecaf();
+            j.Size = Size.Medium;
+            Assert.Equal("Medium Decaf Jurassic Java", j.Description);
+        }
+
+        [Fact]
+        public void CorrectLargeDecafDescription()
+        {
+            JurassicJava j = new JurassicJava();
+            j.MakeDecaf();
+            j.Size = Size.Large;
+            Assert.Equal("Large Decaf Jurassic Java", j.Description);
+        }
+
+        [Fact]
+        public void CorrectDefaultToString()
+        {
+            JurassicJava j = new JurassicJava();
+            Assert.Equal("Small Jurassic Java", j.ToString());
+        }
+
+        [Fact]
+        public void CorrectMediumToString()
+        {
+            JurassicJava j = new JurassicJava();
+            j.Size = Size.Medium;
+            Assert.Equal("Medium Jurassic Java", j.ToString());
+        }
+
+        [Fact]
+        public void CorrectLargeToString()
+        {
+            JurassicJava j = new JurassicJava();
+            j.Size = Size.Large;
+            Assert.Equal("Large Jurassic Java", j.ToString());
+        }
+
+        [Fact]
+        public void CorrectDefaultDecafToString()
+        {
+            JurassicJava j = new JurassicJava();
+            j.MakeDecaf();
+            Assert.Equal("Small Decaf Jurassic Java", j.ToString());
+        }
+
+        [Fact]
+        public void CorrectMediumDecafToString()
+        {
+            JurassicJava j = new JurassicJava();
+            j.MakeDecaf();
+            j.Size = Size.Medium;
+            Assert.Equal("Medium Decaf Jurassic Java", j.ToString());
+        }
+
+        [Fact]
+        public void CorrectLargeDecafToString()
+        {
+            JurassicJava j = new JurassicJava();
+            j.MakeDecaf();
+            j.Size = Size.Large;
+            Assert.Equal("Large Decaf Jurassic Java", j.ToString());
+        }
+
+        [Fact]
+        public void ShouldHaveEmptySpecialListByDeafult()
+        {
+            JurassicJava j = new JurassicJava();
+            Assert.Empty(j.Special);
+        }
+
+        [Fact]
+        public void AddIceShouldBeInSpecial()
+        {
+            JurassicJava j = new JurassicJava();
+            j.AddIce();
+            Assert.Collection<string>(j.Special, item =>
+            {
+                Assert.Equal("Add Ice", item);
+            });
+        }
+
+        [Fact]
+        public void LeaveRoomForCreamShouldBeInSpecial()
+        {
+            JurassicJava j = new JurassicJava();
+            j.LeaveRoomForCream();
+            Assert.Collection<string>(j.Special, item =>
+            {
+                Assert.Equal("Leave Room For Cream", item);
+            });
+        }
+
+        [Fact]
+        public void SpecialShouldContainNeccessaryInstructions()
+        {
+            JurassicJava j = new JurassicJava();
+            j.AddIce();
+            j.LeaveRoomForCream();
+            Assert.Collection<string>(j.Special, item =>
+            {
+                Assert.Equal("Add Ice", item);
+            },
+            item =>
+            {
+                Assert.Equal("Leave Room For Cream", item);
+            });
+        }
+
+        [Fact]
+        public void AddIceShouldNotifyOfSpecialPropertyChange()
+        {
+            JurassicJava j = new JurassicJava();
+            Assert.PropertyChanged(j, "Special", j.AddIce);
+        }
+
+        [Fact]
+        public void LeaveRoomForCreamShouldNotifyOfSpecialPropertyChange()
+        {
+            JurassicJava j = new JurassicJava();
+            Assert.PropertyChanged(j, "Special", j.LeaveRoomForCream);
+        }
+
+        [Fact]
+        public void MakeDecafShouldNotifyOfDescriptionPropertyChange()
+        {
+            JurassicJava j = new JurassicJava();
+            Assert.PropertyChanged(j, "Description", j.MakeDecaf);
+        }
+
+        [Fact]
+        public void ChangingSizeShouldNotifyOfDescriptionPropertyChange()
+        {
+            JurassicJava j = new JurassicJava();
+            Assert.PropertyChanged(j, "Description", j.MakeMedium);
+        }
+
+        [Fact]
+        public void ChangingSizeShouldNotifyOfPricePropertyChange()
+        {
+            JurassicJava j = new JurassicJava();
+            Assert.PropertyChanged(j, "Price", j.MakeMedium);
+        }
+
         /// <summary>
         /// The correct default price
         /// </summary>

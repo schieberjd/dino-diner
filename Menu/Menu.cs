@@ -9,7 +9,7 @@ using System.Text;
 namespace DinoDiner.Menu
 {
     /// <summary>
-    /// Contains the menu for the DinoDiner
+    /// Represents the DinoDiner menu
     /// </summary>
     public class Menu
     {

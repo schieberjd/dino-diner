@@ -10,11 +10,40 @@ namespace DinoDiner.Menu
     /// <summary>
     /// A class representing a combo meal
     /// </summary>
-    public class CretaceousCombo : IMenuItem
+    public class CretaceousCombo : IMenuItem, IOrderItem
     {
-        // Backing Variables
+        /// <summary>
+        /// Backing variable for size
+        /// </summary>
         private Size size;
 
+        /// <summary>
+        /// Gets the description of the menu item
+        /// </summary>
+        public string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Gets the special instructions for a menu item
+        /// </summary>
+        public string[] Special
+        {
+            get
+            {
+                List<string> ingredients = new List<string>();
+                ingredients.AddRange(Entree.Special);
+                ingredients.Add(Side.Description);
+                ingredients.AddRange(Side.Special);
+                ingredients.Add(Drink.Description);
+                ingredients.AddRange(Drink.Special);
+                return ingredients.ToArray();
+            }
+        }
 
         /// <summary>
         /// Gets and sets the entree

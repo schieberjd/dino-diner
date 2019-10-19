@@ -1,11 +1,32 @@
 ﻿using System.Collections.Generic;
 using Xunit;
-using DinoDiner.Menu.Entrees;
+using DinoDiner.Menu;
 
 namespace MenuTest.Entrees
 {
     public class PterodactylWingsUnitTest
     {
+        [Fact]
+        public void CorrectDefaultDescription()
+        {
+            PterodactylWings p = new PterodactylWings();
+            Assert.Equal("Pterodactyl Wings", p.Description);
+        }
+
+        [Fact]
+        public void CorrectDefaultToString()
+        {
+            PterodactylWings p = new PterodactylWings();
+            Assert.Equal("Pterodactyl Wings", p.ToString());
+        }
+
+        [Fact]
+        public void ShouldHaveEmptySpecialListByDeafult()
+        {
+            PterodactylWings p = new PterodactylWings();
+            Assert.Empty(p.Special);
+        }
+
         [Fact]
         public void ShouldHaveCorrectDefaultPrice()
         {

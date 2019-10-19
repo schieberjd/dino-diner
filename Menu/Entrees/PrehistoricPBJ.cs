@@ -6,22 +6,63 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// The menu item PrehistoricPBJ and its customizations.
     /// </summary>
-    public class PrehistoricPBJ : Entree, IMenuItem
+    public class PrehistoricPBJ : Entree, IMenuItem, INotifyPropertyChanged, IOrderItem
     {
         /// <summary>
         /// Whether or not the PrehistoricPBJ has peanut butter.
         /// </summary>
         private bool peanutButter = true;
+
         /// <summary>
         /// Whether or not the PrehistoricPBJ has jelly.
         /// </summary>
         private bool jelly = true;
+
+        /// <summary>
+        /// The PropertyChanged event handler; notifies of changes to the Price, Description, and Special Properties
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Helper function for notifying of propety changes
+        /// </summary>
+        /// <param name="propertyName">The property name</param>
+        public void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        /// <summary>
+        /// Gets the description of the menu item
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Gets the special instructions for a menu item
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!peanutButter) special.Add("Hold Peanut Butter");
+                if (!jelly) special.Add("Hold Jelly");
+                return special.ToArray();
+            }
+        }
 
         /// <summary>
         /// The ingredients in the PrehistoricPBJ.
@@ -52,6 +93,7 @@ namespace DinoDiner.Menu
         public void HoldPeanutButter()
         {
             this.peanutButter = false;
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>
@@ -60,6 +102,7 @@ namespace DinoDiner.Menu
         public void HoldJelly()
         {
             this.jelly = false;
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>

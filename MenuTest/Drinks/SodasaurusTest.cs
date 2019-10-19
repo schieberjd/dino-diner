@@ -15,6 +15,254 @@ namespace MenuTest.Drinks
     /// </summary>
     public class SodasaurusTest
     {
+        [Fact]
+        public void CorrectDefaultDescription()
+        {
+            Sodasaurus s = new Sodasaurus();
+            Assert.Equal("Small Cola Sodasaurus", s.Description);
+        }
+
+        [Fact]
+        public void CorrectMediumDescription()
+        {
+            Sodasaurus s = new Sodasaurus();
+            s.MakeMedium();
+            Assert.Equal("Medium Cola Sodasaurus", s.Description);
+        }
+
+        [Fact]
+        public void CorrectLargeDescription()
+        {
+            Sodasaurus s = new Sodasaurus();
+            s.MakeLarge();
+            Assert.Equal("Large Cola Sodasaurus", s.Description);
+        }
+
+        [Fact]
+        public void CorrectDefaultDescriptionOrange()
+        {
+            Sodasaurus s = new Sodasaurus();
+            s.MakeOrange();
+            Assert.Equal("Small Orange Sodasaurus", s.Description);
+        }
+
+        [Fact]
+        public void CorrectMediumDescriptionOrange()
+        {
+            Sodasaurus s = new Sodasaurus();
+            s.MakeOrange();
+            s.MakeMedium();
+            Assert.Equal("Medium Orange Sodasaurus", s.Description);
+        }
+
+        [Fact]
+        public void CorrectLargeDescriptionOrange()
+        {
+            Sodasaurus s = new Sodasaurus();
+            s.MakeOrange();
+            s.MakeLarge();
+            Assert.Equal("Large Orange Sodasaurus", s.Description);
+        }
+
+        [Fact]
+        public void CorrectDefaultDescriptionVanilla()
+        {
+            Sodasaurus s = new Sodasaurus();
+            s.MakeVanilla();
+            Assert.Equal("Small Vanilla Sodasaurus", s.Description);
+        }
+
+        [Fact]
+        public void CorrectMediumDescriptionVanilla()
+        {
+            Sodasaurus s = new Sodasaurus();
+            s.MakeVanilla();
+            s.MakeMedium();
+            Assert.Equal("Medium Vanilla Sodasaurus", s.Description);
+        }
+
+        [Fact]
+        public void CorrectLargeDescriptionVanilla()
+        {
+            Sodasaurus s = new Sodasaurus();
+            s.MakeVanilla();
+            s.MakeLarge();
+            Assert.Equal("Large Vanilla Sodasaurus", s.Description);
+        }
+
+        [Fact]
+        public void CorrectDefaultDescriptionChocolate()
+        {
+            Sodasaurus s = new Sodasaurus();
+            s.MakeChocolate();
+            Assert.Equal("Small Chocolate Sodasaurus", s.Description);
+        }
+
+        [Fact]
+        public void CorrectMediumDescriptionChocolate()
+        {
+            Sodasaurus s = new Sodasaurus();
+            s.MakeChocolate();
+            s.MakeMedium();
+            Assert.Equal("Medium Chocolate Sodasaurus", s.Description);
+        }
+
+        [Fact]
+        public void CorrectLargeDescriptionChocolate()
+        {
+            Sodasaurus s = new Sodasaurus();
+            s.MakeChocolate();
+            s.MakeLarge();
+            Assert.Equal("Large Chocolate Sodasaurus", s.Description);
+        }
+
+        [Fact]
+        public void CorrectDefaultToString()
+        {
+            Sodasaurus s = new Sodasaurus();
+            Assert.Equal("Small Cola Sodasaurus", s.ToString());
+        }
+
+        [Fact]
+        public void CorrectMediumToString()
+        {
+            Sodasaurus s = new Sodasaurus();
+            s.MakeMedium();
+            Assert.Equal("Medium Cola Sodasaurus", s.ToString());
+        }
+
+        [Fact]
+        public void CorrectLargeToString()
+        {
+            Sodasaurus s = new Sodasaurus();
+            s.MakeLarge();
+            Assert.Equal("Large Cola Sodasaurus", s.ToString());
+        }
+
+        [Fact]
+        public void CorrectDefaultToStringOrange()
+        {
+            Sodasaurus s = new Sodasaurus();
+            s.MakeOrange();
+            Assert.Equal("Small Orange Sodasaurus", s.ToString());
+        }
+
+        [Fact]
+        public void CorrectMediumToStringOrange()
+        {
+            Sodasaurus s = new Sodasaurus();
+            s.MakeOrange();
+            s.MakeMedium();
+            Assert.Equal("Medium Orange Sodasaurus", s.ToString());
+        }
+
+        [Fact]
+        public void CorrectLargeToStringOrange()
+        {
+            Sodasaurus s = new Sodasaurus();
+            s.MakeOrange();
+            s.MakeLarge();
+            Assert.Equal("Large Orange Sodasaurus", s.ToString());
+        }
+
+        [Fact]
+        public void CorrectDefaultToStringVanilla()
+        {
+            Sodasaurus s = new Sodasaurus();
+            s.MakeVanilla();
+            Assert.Equal("Small Vanilla Sodasaurus", s.ToString());
+        }
+
+        [Fact]
+        public void CorrectMediumToStringVanilla()
+        {
+            Sodasaurus s = new Sodasaurus();
+            s.MakeVanilla();
+            s.MakeMedium();
+            Assert.Equal("Medium Vanilla Sodasaurus", s.ToString());
+        }
+
+        [Fact]
+        public void CorrectLargeToStringVanilla()
+        {
+            Sodasaurus s = new Sodasaurus();
+            s.MakeVanilla();
+            s.MakeLarge();
+            Assert.Equal("Large Vanilla Sodasaurus", s.ToString());
+        }
+
+        [Fact]
+        public void CorrectDefaultToStringChocolate()
+        {
+            Sodasaurus s = new Sodasaurus();
+            s.MakeChocolate();
+            Assert.Equal("Small Chocolate Sodasaurus", s.ToString());
+        }
+
+        [Fact]
+        public void CorrectMediumToStringChocolate()
+        {
+            Sodasaurus s = new Sodasaurus();
+            s.MakeChocolate();
+            s.MakeMedium();
+            Assert.Equal("Medium Chocolate Sodasaurus", s.ToString());
+        }
+
+        [Fact]
+        public void CorrectLargeToStringChocolate()
+        {
+            Sodasaurus s = new Sodasaurus();
+            s.MakeChocolate();
+            s.MakeLarge();
+            Assert.Equal("Large Chocolate Sodasaurus", s.ToString());
+        }
+
+        [Fact]
+        public void ShouldHaveEmptySpecialListByDeafult()
+        {
+            Sodasaurus s = new Sodasaurus();
+            Assert.Empty(s.Special);
+        }
+
+        [Fact]
+        public void SpecialShouldContainNeccessaryInstructions()
+        {
+            Sodasaurus s = new Sodasaurus();
+            s.HoldIce();
+            Assert.Collection<string>(s.Special, item =>
+            {
+                Assert.Equal("Hold Ice", item);
+            });
+        }
+
+        [Fact]
+        public void HoldIceShouldNotifyOfSpecialPropertyChange()
+        {
+            Sodasaurus s = new Sodasaurus();
+            Assert.PropertyChanged(s, "Special", s.HoldIce);
+        }
+
+        [Fact]
+        public void ChangingSizeShouldNotifyOfDescriptionPropertyChange()
+        {
+            Sodasaurus s = new Sodasaurus();
+            Assert.PropertyChanged(s, "Description", s.MakeMedium);
+        }
+
+        [Fact]
+        public void ChangingSizeShouldNotifyOfPricePropertyChange()
+        {
+            Sodasaurus s = new Sodasaurus();
+            Assert.PropertyChanged(s, "Price", s.MakeMedium);
+        }
+
+        [Fact]
+        public void ChangingFlavorShouldNotifyOfDescriptionPropertyChange()
+        {
+            Sodasaurus s = new Sodasaurus();
+            Assert.PropertyChanged(s, "Description", s.MakeLime);
+        }
+
         /// <summary>
         /// The ability to set cola flavor
         /// </summary>

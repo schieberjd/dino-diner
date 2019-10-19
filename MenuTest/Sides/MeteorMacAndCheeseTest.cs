@@ -6,6 +6,101 @@ namespace MenuTest.Sides
     public class MeteorMacAndCheeseTest
     {
         [Fact]
+        public void CorrectDefaultDescription()
+        {
+            MeteorMacAndCheese m = new MeteorMacAndCheese();
+            Assert.Equal("Small Meteor Mac and Cheese", m.Description);
+        }
+
+        [Fact]
+        public void CorrectMediumDescription()
+        {
+            MeteorMacAndCheese m = new MeteorMacAndCheese();
+            m.MakeMedium();
+            Assert.Equal("Medium Meteor Mac and Cheese", m.Description);
+        }
+
+        [Fact]
+        public void CorrectLargeDescription()
+        {
+            MeteorMacAndCheese m = new MeteorMacAndCheese();
+            m.MakeLarge();
+            Assert.Equal("Large Meteor Mac and Cheese", m.Description);
+        }
+
+        [Fact]
+        public void CorrectDefaultToString()
+        {
+            MeteorMacAndCheese m = new MeteorMacAndCheese();
+            Assert.Equal("Small Meteor Mac and Cheese", m.ToString());
+        }
+
+        [Fact]
+        public void CorrectMediumToString()
+        {
+            MeteorMacAndCheese m = new MeteorMacAndCheese();
+            m.MakeMedium();
+            Assert.Equal("Medium Meteor Mac and Cheese", m.ToString());
+        }
+
+        [Fact]
+        public void CorrectLargeToString()
+        {
+            MeteorMacAndCheese m = new MeteorMacAndCheese();
+            m.MakeLarge();
+            Assert.Equal("Large Meteor Mac and Cheese", m.ToString());
+        }
+
+        [Fact]
+        public void ShouldHaveEmptySpecialListByDeafult()
+        {
+            MeteorMacAndCheese m = new MeteorMacAndCheese();
+            Assert.Empty(m.Special);
+        }
+
+        [Fact]
+        public void MakeSmallShouldNotifyOfDescriptionPropertyChange()
+        {
+            MeteorMacAndCheese m = new MeteorMacAndCheese();
+            Assert.PropertyChanged(m, "Description", m.MakeSmall);
+        }
+
+        [Fact]
+        public void MakeSmallShouldNotifyOfPricePropertyChange()
+        {
+            MeteorMacAndCheese m = new MeteorMacAndCheese();
+            Assert.PropertyChanged(m, "Price", m.MakeSmall);
+        }
+
+        [Fact]
+        public void MakeMediumShouldNotifyOfDescriptionPropertyChange()
+        {
+            MeteorMacAndCheese m = new MeteorMacAndCheese();
+            Assert.PropertyChanged(m, "Description", m.MakeMedium);
+        }
+
+        [Fact]
+        public void MakeMediumShouldNotifyOfPricePropertyChange()
+        {
+            MeteorMacAndCheese m = new MeteorMacAndCheese();
+            Assert.PropertyChanged(m, "Price", m.MakeMedium);
+        }
+
+        [Fact]
+        public void MakeLargeShouldNotifyOfDescriptionPropertyChange()
+        {
+            MeteorMacAndCheese m = new MeteorMacAndCheese();
+            Assert.PropertyChanged(m, "Description", m.MakeLarge);
+        }
+
+        [Fact]
+        public void MakeLargeShouldNotifyOfPricePropertyChange()
+        {
+            MeteorMacAndCheese m = new MeteorMacAndCheese();
+            Assert.PropertyChanged(m, "Price", m.MakeLarge);
+        }
+
+        [Fact]
         public void ShouldHaveCorrectDefaultPrice()
         {
             MeteorMacAndCheese mmc = new MeteorMacAndCheese();

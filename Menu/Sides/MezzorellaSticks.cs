@@ -6,18 +6,56 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using DinoDiner.Menu;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// A class that represents the side item MezzorellaSticks.
     /// </summary>
-    public class MezzorellaSticks : Side, IMenuItem
+    public class MezzorellaSticks : Side, IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
         /// The size of the item.
         /// </summary>
         private Size size;
+
+        /// <summary>
+        /// Gets the description of the menu item
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Gets the special instructions for a menu item
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                return special.ToArray();
+            }
+        }
+
+        /// <summary>
+        /// The PropertyChanged event handler; notifies of changes to the Price, Description, and Special Properties
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Helper function for notifying of propety changes
+        /// </summary>
+        /// <param name="propertyName">The property name</param>
+        public void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         /// <summary>
         /// The ingredients of the current menu item
@@ -63,6 +101,36 @@ namespace DinoDiner.Menu
             {
                 return size;
             }
+        }
+
+        /// <summary>
+        /// Makes the item small
+        /// </summary>
+        public void MakeSmall()
+        {
+            this.Size = Size.Small;
+            NotifyOfPropertyChange("Price");
+            NotifyOfPropertyChange("Description");
+        }
+
+        /// <summary>
+        /// Makes the item medium
+        /// </summary>
+        public void MakeMedium()
+        {
+            this.Size = Size.Medium;
+            NotifyOfPropertyChange("Price");
+            NotifyOfPropertyChange("Description");
+        }
+
+        /// <summary>
+        /// Makes the item large
+        /// </summary>
+        public void MakeLarge()
+        {
+            this.Size = Size.Large;
+            NotifyOfPropertyChange("Price");
+            NotifyOfPropertyChange("Description");
         }
 
         /// <summary>

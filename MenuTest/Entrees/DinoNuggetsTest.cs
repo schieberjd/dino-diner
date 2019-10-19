@@ -1,11 +1,59 @@
 ﻿using System.Collections.Generic;
 using Xunit;
-using DinoDiner.Menu.Entrees;
+using DinoDiner.Menu;
 
 namespace MenuTest.Entrees
 {
     public class DinoNuggetsUnitTest
     {
+        [Fact]
+        public void CorrectDefaultDescription()
+        {
+            DinoNuggets d = new DinoNuggets();
+            Assert.Equal("Dino-Nuggets", d.Description);
+        }
+
+        [Fact]
+        public void CorrectDefaultToString()
+        {
+            DinoNuggets d = new DinoNuggets();
+            Assert.Equal("Dino-Nuggets", d.ToString());
+        }
+
+        [Fact]
+        public void ShouldHaveEmptySpecialListByDeafult()
+        {
+            DinoNuggets d = new DinoNuggets();
+            Assert.Empty(d.Special);
+        }
+
+        [Fact]
+        public void SpecialShouldContainNeccessaryInstructions()
+        {
+            DinoNuggets d = new DinoNuggets();
+            d.AddNugget();
+            d.AddNugget();
+            d.AddNugget();
+            Assert.Collection<string>(d.Special, item =>
+            {
+                Assert.Equal("3 Extra Nuggets", item);
+            });
+        }
+
+        [Fact]
+        public void AddNuggetShouldNotifyOfSpecialPropertyChange()
+        {
+            DinoNuggets d = new DinoNuggets();
+            Assert.PropertyChanged(d, "Special", d.AddNugget);
+        }
+
+        [Fact]
+        public void AddNuggetShouldNotifyOfPricePropertyChange()
+        {
+            DinoNuggets d = new DinoNuggets();
+            Assert.PropertyChanged(d, "Price", d.AddNugget);
+        }
+
         [Fact]
         public void ShouldHaveCorrectDefaultPrice()
         {
