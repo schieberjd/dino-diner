@@ -22,13 +22,13 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Button Grid.Column="0" Grid.Row="0" Content="Cherry" FontSize="16"/>
-            <Button Grid.Column="1" Grid.Row="0" Content="Chocolate" FontSize="16"/>
-            <Button Grid.Column="2" Grid.Row="0" Content="Cola" FontSize="16"/>
-            <Button Grid.Column="0" Grid.Row="1" Content="Lime" FontSize="16"/>
-            <Button Grid.Column="1" Grid.Row="1" Content="Orange" FontSize="16"/>
-            <Button Grid.Column="2" Grid.Row="1" Content="Root Beer" FontSize="16"/>
-            <Button Grid.Column="0" Grid.Row="2" Content="Vanilla" FontSize="16"/>
+            <Button Grid.Column="0" Grid.Row="0" Click="SelectCherry" Content="Cherry" FontSize="16"/>
+            <Button Grid.Column="1" Grid.Row="0" Click="SelectChocolate" Content="Chocolate" FontSize="16"/>
+            <Button Grid.Column="2" Grid.Row="0" Click="SelectCola" Content="Cola" FontSize="16"/>
+            <Button Grid.Column="0" Grid.Row="1" Click="SelectLime" Content="Lime" FontSize="16"/>
+            <Button Grid.Column="1" Grid.Row="1" Click="SelectOrange" Content="Orange" FontSize="16"/>
+            <Button Grid.Column="2" Grid.Row="1" Click="SelectRootBeer" Content="Root Beer" FontSize="16"/>
+            <Button Grid.Column="0" Grid.Row="2" Click="SelectVanilla" Content="Vanilla" FontSize="16"/>
         </Grid>
     </Grid>
 </Page>

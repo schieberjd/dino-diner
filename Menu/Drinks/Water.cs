@@ -83,7 +83,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Makes the item small
         /// </summary>
-        public void MakeSmall()
+        public override void MakeSmall()
         {
             this.Size = Size.Small;
             NotifyOfPropertyChange("Description");
@@ -92,7 +92,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Makes the item medium
         /// </summary>
-        public void MakeMedium()
+        public override void MakeMedium()
         {
             this.Size = Size.Medium;
             NotifyOfPropertyChange("Description");
@@ -101,7 +101,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Makes the item large
         /// </summary>
-        public void MakeLarge()
+        public override void MakeLarge()
         {
             this.Size = Size.Large;
             NotifyOfPropertyChange("Description");

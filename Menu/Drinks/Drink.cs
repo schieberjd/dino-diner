@@ -71,5 +71,20 @@ namespace DinoDiner.Menu
             Ice = false;
             NotifyOfPropertyChange("Special");
         }
+
+        /// <summary>
+        /// Makes the item small
+        /// </summary>
+        public abstract void MakeSmall();
+
+        /// <summary>
+        /// Makes the item medium
+        /// </summary>
+        public abstract void MakeMedium();
+
+        /// <summary>
+        /// Makes the item large
+        /// </summary>
+        public abstract void MakeLarge();
     }
 }

@@ -24,10 +24,10 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Button Grid.Row="0" Content="Fryceritops" FontSize="16"/>
-                <Button Grid.Row="1" Content="Meteor Mac &amp; Cheese" FontSize="16"/>
-                <Button Grid.Row="2" Content="Mezzorella Stcks" FontSize="16"/>
-                <Button Grid.Row="3" Content="Triceritots" FontSize="16"/>
+                <Button Name="AddFryceritops" Click="AddFryceritopsEvent" Grid.Row="0" Content="Fryceritops" FontSize="16"/>
+                <Button Name="AddMeteorMacAndCheese" Click="AddMeteorMacAndCheeseEvent" Grid.Row="1" Content="Meteor Mac &amp; Cheese" FontSize="16"/>
+                <Button Name="AddMezzorellaSticks" Click="AddMezzorellaSticksEvent" Grid.Row="2" Content="Mezzorella Sticks" FontSize="16"/>
+                <Button Name="AddTriceritots" Click="AddTriceritotsEvent" Grid.Row="3" Content="Triceritots" FontSize="16"/>
             </Grid>
             <Grid Grid.Column="1" Background="#FFDDDDDD">
                 <Grid.RowDefinitions>
@@ -35,12 +35,9 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Border BorderThickness="1" BorderBrush="#FF707070" Grid.Row="0"/>
-                <Border BorderThickness="1" BorderBrush="#FF707070" Grid.Row="1"/>
-                <Border BorderThickness="1" BorderBrush="#FF707070" Grid.Row="2"/>
-                <RadioButton Grid.Row="0" Content="Small" FontSize="16" IsChecked="true" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-                <RadioButton Grid.Row="1" Content="Medium" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-                <RadioButton Grid.Row="2" Content="Large" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <Button Name="PickSmall" Click="SelectSmall" Grid.Row="0" Content="Small" FontSize="16" />
+                <Button Name="PickMedium" Click="SelectMedium" Grid.Row="1" Content="Medium" FontSize="16" />
+                <Button Name="PickLarge" Click="SelectLarge" Grid.Row="2" Content="Large" FontSize="16"/>
             </Grid>
         </Grid>
     </Grid>

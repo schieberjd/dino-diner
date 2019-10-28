@@ -45,5 +45,20 @@ namespace DinoDiner.Menu
         /// Gets or sets the size
         /// </summary>
         public abstract Size Size { get; set; }
+
+        /// <summary>
+        /// Makes the item small
+        /// </summary>
+        public abstract void MakeSmall();
+
+        /// <summary>
+        /// Makes the item medium
+        /// </summary>
+        public abstract void MakeMedium();
+
+        /// <summary>
+        /// Makes the item large
+        /// </summary>
+        public abstract void MakeLarge();
     }
 }
