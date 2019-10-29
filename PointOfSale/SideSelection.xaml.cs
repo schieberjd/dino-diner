@@ -41,7 +41,7 @@ namespace PointOfSale
         /// <summary>
         /// Creates a new side selection page with a saved side
         /// </summary>
-        /// <param name="side"></param>
+        /// <param name="side">The saved side</param>
         public SideSelection(Side side)
         {
             InitializeComponent();
@@ -56,7 +56,7 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                order.Items.Add(side);
+                order.Add(side);
                 Side = side;
             }
         }
@@ -71,104 +71,15 @@ namespace PointOfSale
             {
                 if (size == DinoDiner.Menu.Size.Small)
                 {
-                    if (DataContext is Order order)
-                    {
-                        if (Side is Fryceritops fry)
-                        {
-                            order.Items.Remove(Side);
-                            fry.MakeSmall();
-                            Side = fry;
-                            order.Items.Add(Side);
-                        }
-                        else if (Side is MeteorMacAndCheese mmc)
-                        {
-                            order.Items.Remove(Side);
-                            mmc.MakeSmall();
-                            Side = mmc;
-                            order.Items.Add(Side);
-                        }
-                        else if (Side is MezzorellaSticks ms)
-                        {
-                            order.Items.Remove(Side);
-                            ms.MakeSmall();
-                            Side = ms;
-                            order.Items.Add(Side);
-                        } else if (Side is Triceritots tt)
-                        {
-                            order.Items.Remove(Side);
-                            tt.MakeSmall();
-                            Side = tt;
-                            order.Items.Add(Side);
-                        }
-                    }
+                    Side.MakeSmall();
                 }
                 else if (size == DinoDiner.Menu.Size.Medium)
                 {
-                    if (DataContext is Order order)
-                    {
-                        if (Side is Fryceritops fry)
-                        {
-                            order.Items.Remove(Side);
-                            fry.MakeMedium();
-                            Side = fry;
-                            order.Items.Add(Side);
-                        }
-                        else if (Side is MeteorMacAndCheese mmc)
-                        {
-                            order.Items.Remove(Side);
-                            mmc.MakeMedium();
-                            Side = mmc;
-                            order.Items.Add(Side);
-                        }
-                        else if (Side is MezzorellaSticks ms)
-                        {
-                            order.Items.Remove(Side);
-                            ms.MakeMedium();
-                            Side = ms;
-                            order.Items.Add(Side);
-                        }
-                        else if (Side is Triceritots tt)
-                        {
-                            order.Items.Remove(Side);
-                            tt.MakeMedium();
-                            Side = tt;
-                            order.Items.Add(Side);
-                        }
-                    }
+                    Side.MakeMedium();
                 }
                 else if (size == DinoDiner.Menu.Size.Large)
                 {
-                    if (DataContext is Order order)
-                    {
-                        if (Side is Fryceritops fry)
-                        {
-                            order.Items.Remove(Side);
-                            fry.MakeLarge();
-                            Side = fry;
-                            order.Items.Add(Side);
-                        }
-                        else if (Side is MeteorMacAndCheese mmc)
-                        {
-                            order.Items.Remove(Side);
-                            mmc.MakeLarge();
-                            Side = mmc;
-                            order.Items.Add(Side);
-                        }
-                        else if (Side is MezzorellaSticks ms)
-                        {
-                            order.Items.Remove(Side);
-                            ms.MakeLarge();
-                            Side = ms;
-                            order.Items.Add(Side);
-                        }
-                        else if (Side is Triceritots tt)
-                        {
-                            order.Items.Remove(Side);
-                            tt.MakeLarge();
-                            Side = tt;
-                            order.Items.Add(Side);
-                        }
-                    }
+                    Side.MakeLarge();
                 }
                 NavigationService.Navigate(new MenuCategorySelection());
             }

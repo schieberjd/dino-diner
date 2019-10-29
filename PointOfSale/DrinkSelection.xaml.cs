@@ -144,7 +144,7 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                order.Items.Add(drink);
+                order.Add(drink);
                 Drink = drink;
             }
         }
@@ -159,105 +159,15 @@ namespace PointOfSale
             {
                 if (size == DinoDiner.Menu.Size.Small)
                 {
-                    if (DataContext is Order order)
-                    {
-                        if (Drink is Sodasaurus soda)
-                        {
-                            order.Items.Remove(Drink);
-                            soda.MakeSmall();
-                            Drink = soda;
-                            order.Items.Add(Drink);
-                        }
-                        else if (Drink is Tyrannotea tea)
-                        {
-                            order.Items.Remove(Drink);
-                            tea.MakeSmall();
-                            Drink = tea;
-                            order.Items.Add(Drink);
-                        }
-                        else if (Drink is JurassicJava java)
-                        {
-                            order.Items.Remove(Drink);
-                            java.MakeSmall();
-                            Drink = java;
-                            order.Items.Add(Drink);
-                        }
-                        else if (Drink is Water water)
-                        {
-                            order.Items.Remove(Drink);
-                            water.MakeSmall();
-                            Drink = water;
-                            order.Items.Add(Drink);
-                        }
-                    }
+                    Drink.MakeSmall();
                 }
                 else if (size == DinoDiner.Menu.Size.Medium)
                 {
-                    if (DataContext is Order order)
-                    {
-                        if (Drink is Sodasaurus soda)
-                        {
-                            order.Items.Remove(Drink);
-                            soda.MakeMedium();
-                            Drink = soda;
-                            order.Items.Add(Drink);
-                        }
-                        else if (Drink is Tyrannotea tea)
-                        {
-                            order.Items.Remove(Drink);
-                            tea.MakeMedium();
-                            Drink = tea;
-                            order.Items.Add(Drink);
-                        }
-                        else if (Drink is JurassicJava java)
-                        {
-                            order.Items.Remove(Drink);
-                            java.MakeMedium();
-                            Drink = java;
-                            order.Items.Add(Drink);
-                        }
-                        else if (Drink is Water water)
-                        {
-                            order.Items.Remove(Drink);
-                            water.MakeMedium();
-                            Drink = water;
-                            order.Items.Add(Drink);
-                        }
-                    }
+                    Drink.MakeMedium();
                 }
                 else if (size == DinoDiner.Menu.Size.Large)
                 {
-                    if (DataContext is Order order)
-                    {
-                        if (Drink is Sodasaurus soda)
-                        {
-                            order.Items.Remove(Drink);
-                            soda.MakeLarge();
-                            Drink = soda;
-                            order.Items.Add(Drink);
-                        }
-                        else if (Drink is Tyrannotea tea)
-                        {
-                            order.Items.Remove(Drink);
-                            tea.MakeLarge();
-                            Drink = tea;
-                            order.Items.Add(Drink);
-                        }
-                        else if (Drink is JurassicJava java)
-                        {
-                            order.Items.Remove(Drink);
-                            java.MakeLarge();
-                            Drink = java;
-                            order.Items.Add(Drink);
-                        }
-                        else if (Drink is Water water)
-                        {
-                            order.Items.Remove(Drink);
-                            water.MakeLarge();
-                            Drink = water;
-                            order.Items.Add(Drink);
-                        }
-                    }
+                    Drink.MakeLarge();
                 }
             }
         }

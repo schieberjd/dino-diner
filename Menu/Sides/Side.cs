@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using DinoDiner.Menu;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
@@ -60,5 +61,10 @@ namespace DinoDiner.Menu
         /// Makes the item large
         /// </summary>
         public abstract void MakeLarge();
+
+        /// <summary>
+        /// An event handler for property changes
+        /// </summary>
+        public virtual event PropertyChangedEventHandler PropertyChanged;
     }
 }

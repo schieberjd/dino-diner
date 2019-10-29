@@ -23,10 +23,14 @@
                                 <ColumnDefinition/>
                                 <ColumnDefinition Width="20"/>
                             </Grid.ColumnDefinitions>
-                            <TextBlock Text="{Binding Path=Description}"/>
-                            <Button Click="OnRemoveItem" Grid.Column="1" Content="X" Background="Red" Foreground="White"/>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="{Binding Path=Description}" Grid.Column="0" Grid.Row="0"/>
+                            <ListBox ItemsSource="{Binding Path=Special}" Grid.Column="0" Grid.Row="1"/>
+                            <Button Click="OnRemoveItem" Content="X" Background="Red" Foreground="White" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2"/>
                         </Grid>
-                        <ListBox ItemsSource="{Binding Path=Special}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>

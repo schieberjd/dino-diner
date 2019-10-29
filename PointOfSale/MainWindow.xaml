@@ -12,6 +12,14 @@
     </Window.DataContext>
     <DockPanel>
         <local:OrderControl x:Name="OrderList" DockPanel.Dock="Right" Width="200"/>
-        <Frame Name="OrderInterface" Source="MenuCategorySelection.xaml" LoadCompleted="OnLoadCompleted" DataContextChanged="OnDataContextChanged"/>
+        <Grid DockPanel.Dock="Bottom">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="1" Click="OnDone" Height="30" Content="Go Back"/>
+        </Grid>
+        <Frame Name="OrderInterface" NavigationUIVisibility="Hidden" Source="MenuCategorySelection.xaml" LoadCompleted="OnLoadCompleted" DataContextChanged="OnDataContextChanged"/>
     </DockPanel>
 </Window>

@@ -64,5 +64,22 @@ namespace PointOfSale
         {
             BindDataContextToPage();
         }
+
+        /// <summary>
+        /// Implements a back button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        public void OnDone(object sender, RoutedEventArgs args)
+        {
+            if (OrderInterface.CanGoBack)
+            {
+                OrderInterface.NavigationService.GoBack();
+            }
+            else
+            {
+                OrderInterface.NavigationService.Navigate(new MenuCategorySelection());
+            }
+        }
     }
 }

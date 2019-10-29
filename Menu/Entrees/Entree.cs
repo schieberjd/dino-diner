@@ -5,6 +5,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
@@ -37,5 +38,10 @@ namespace DinoDiner.Menu
         /// Gets the ingredients list
         /// </summary>
         public abstract List<string> Ingredients { get; }
+
+        /// <summary>
+        /// An event handler for property changes
+        /// </summary>
+        public virtual event PropertyChangedEventHandler PropertyChanged;
     }
 }

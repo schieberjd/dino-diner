@@ -41,7 +41,7 @@ namespace PointOfSale
         /// <summary>
         /// Creates a new entree selection page with a saved entree
         /// </summary>
-        /// <param name="entree">The saved entree</param>
+        /// <param name="side">The saved entree</param>
         public EntreeSelection(Entree entree)
         {
             InitializeComponent();
@@ -49,17 +49,15 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// Adds an entree to the control and selects the entree
+        /// Adds an entree to the control
         /// </summary>
-        /// <param name="entree">The selected entree</param>
         private void SelectEntree(Entree entree)
         {
             if (DataContext is Order order)
             {
-                order.Items.Add(entree);
+                order.Add(entree);
                 Entree = entree;
             }
-            NavigationService.Navigate(new MenuCategorySelection());
         }
 
         /// <summary>
@@ -69,7 +67,9 @@ namespace PointOfSale
         /// <param name="args"></param>
         protected void SelectBrontowurst(object sender, RoutedEventArgs args)
         {
-            SelectEntree(new Brontowurst());
+            Brontowurst b = new Brontowurst();
+            SelectEntree(b);
+            //NavigationService.Navigate(new CustomizeBrontowurst(b));
         }
 
         /// <summary>
@@ -79,7 +79,9 @@ namespace PointOfSale
         /// <param name="args"></param>
         protected void SelectDinoNuggets(object sender, RoutedEventArgs args)
         {
-            SelectEntree(new DinoNuggets());
+            DinoNuggets d = new DinoNuggets();
+            SelectEntree(d);
+            //NavigationService.Navigate(new CustomizeDinoNuggets(d));
         }
 
         /// <summary>
@@ -89,7 +91,9 @@ namespace PointOfSale
         /// <param name="args"></param>
         protected void SelectPrehistoricPBJ(object sender, RoutedEventArgs args)
         {
-            SelectEntree(new PrehistoricPBJ());
+            PrehistoricPBJ p = new PrehistoricPBJ();
+            SelectEntree(p);
+            NavigationService.Navigate(new CustomizePrehistoricPBJ(p));
         }
 
         /// <summary>
@@ -99,7 +103,9 @@ namespace PointOfSale
         /// <param name="args"></param>
         protected void SelectPterodactylWings(object sender, RoutedEventArgs args)
         {
-            SelectEntree(new PterodactylWings());
+            PterodactylWings p = new PterodactylWings();
+            SelectEntree(p);
+            //NavigationService.Navigate(new CustomizePterodactylWings(p));
         }
 
         /// <summary>
@@ -109,7 +115,9 @@ namespace PointOfSale
         /// <param name="args"></param>
         protected void SelectSteakosaurusBurger(object sender, RoutedEventArgs args)
         {
-            SelectEntree(new SteakosaurusBurger());
+            SteakosaurusBurger s = new SteakosaurusBurger();
+            SelectEntree(s);
+            //NavigationService.Navigate(new CustomizeSteakosaurusBurger(s));
         }
 
         /// <summary>
@@ -119,7 +127,9 @@ namespace PointOfSale
         /// <param name="args"></param>
         protected void SelectTRexKingBurger(object sender, RoutedEventArgs args)
         {
-            SelectEntree(new TRexKingBurger());
+            TRexKingBurger t = new TRexKingBurger();
+            SelectEntree(t);
+            //NavigationService.Navigate(new CustomizeTRexKingBurger(t));
         }
 
         /// <summary>
@@ -129,7 +139,9 @@ namespace PointOfSale
         /// <param name="args"></param>
         protected void SelectVelociWrap(object sender, RoutedEventArgs args)
         {
-            SelectEntree(new VelociWrap());
+            VelociWrap v = new VelociWrap();
+            SelectEntree(v);
+            //NavigationService.Navigate(new CustomizeVelociWrap(v));
         }
     }
 }

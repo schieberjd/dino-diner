@@ -49,13 +49,40 @@ namespace PointOfSale
             {
                 NavigationService?.Navigate(new SideSelection(side));
             }
-            else if (OrderItems.SelectedItem is Entree entree)
-            {
-                NavigationService?.Navigate(new EntreeSelection(entree));
-            }
             else if (OrderItems.SelectedItem is Drink drink)
             {
                 NavigationService?.Navigate(new DrinkSelection(drink));
+            }
+            else if (OrderItems.SelectedItem is Entree entree)
+            {
+                if (entree is PrehistoricPBJ p)
+                {
+                    NavigationService?.Navigate(new CustomizePrehistoricPBJ(p));
+                }
+                /*else if (entree is Brontowurst b)
+                {
+                    NavigationService?.Navigate(new CustomizeBrontowurst(b));
+                }
+                else if (entree is DinoNuggets d)
+                {
+                    NavigationService?.Navigate(new CustomizeDinoNuggets(d));
+                }
+                else if (entree is PterodactylWings pw)
+                {
+                    NavigationService?.Navigate(new CustomizePterodactylWings(pw));
+                }
+                else if (entree is SteakosaurusBurger s)
+                {
+                    NavigationService?.Navigate(new CustomizeSteakosaurusBurger(s));
+                }
+                else if (entree is TRexKingBurger t)
+                {
+                    NavigationService?.Navigate(new CustomizeTRexKingBurger(t));
+                }
+                else if (entree is VelociWrap v)
+                {
+                    NavigationService?.Navigate(new CustomizeVelociWrap(v));
+                }*/
             }
         }
 
@@ -72,7 +99,7 @@ namespace PointOfSale
                 {
                     if (element.DataContext is IOrderItem item)
                     {
-                        order.Items.Remove(item);
+                        order.Remove(item);
                     }
                 }
             }

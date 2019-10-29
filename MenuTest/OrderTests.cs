@@ -24,7 +24,7 @@ namespace MenuTest
             Order o = new Order();
             PrehistoricPBJ p = new PrehistoricPBJ();
             p.Price = -100;
-            o.Items.Add(p);
+            o.Add(p);
             Assert.Equal<double>(0, o.SubtotalCost);
         }
 
@@ -35,10 +35,10 @@ namespace MenuTest
         public void ShouldHaveCorrectTotalCost()
         {
             Order o = new Order();
-            o.Items.Add(new Brontowurst());
+            o.Add(new Brontowurst());
             Tyrannotea t = new Tyrannotea();
             t.MakeLarge();
-            o.Items.Add(t);
+            o.Add(t);
             Assert.Equal<double>(8.085, o.TotalCost);
         }
 
@@ -49,8 +49,8 @@ namespace MenuTest
         public void ShouldHaveCorrectTotalCost2()
         {
             Order o = new Order();
-            o.Items.Add(new CretaceousCombo(new DinoNuggets()));
-            o.Items.Add(new Water());
+            o.Add(new CretaceousCombo(new DinoNuggets()));
+            o.Add(new Water());
             Assert.Equal<double>(7.249, o.TotalCost);
         }
 
@@ -61,10 +61,10 @@ namespace MenuTest
         public void ShouldHaveCorrectTotalCost3()
         {
             Order o = new Order();
-            o.Items.Add(new CretaceousCombo(new PterodactylWings()));
+            o.Add(new CretaceousCombo(new PterodactylWings()));
             Triceritots t = new Triceritots();
             t.MakeLarge();
-            o.Items.Add(t);
+            o.Add(t);
             Assert.Equal<double>(12.54, o.TotalCost);
         }
     }
