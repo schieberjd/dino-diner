@@ -14,6 +14,9 @@ namespace DinoDiner.Menu
     /// </summary>
     public class Water : Drink, IMenuItem, IOrderItem, INotifyPropertyChanged
     {
+        //Backing variable
+        private Size size;
+
         /// <summary>
         /// Whether or not the water has lemon
         /// </summary>
@@ -77,6 +80,24 @@ namespace DinoDiner.Menu
                 List<string> ingredients = new List<string>() { "Water" };
                 if (Lemon) ingredients.Add("Lemon");
                 return ingredients;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the size of the item and the corresponding values
+        /// </summary>
+        public override Size Size
+        {
+            set
+            {
+                size = value;
+                NotifyOfPropertyChange("Price");
+                NotifyOfPropertyChange("Description");
+            }
+
+            get
+            {
+                return size;
             }
         }
 

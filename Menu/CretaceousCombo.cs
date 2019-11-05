@@ -24,6 +24,15 @@ namespace DinoDiner.Menu
         public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
+        /// Helper function for notifying of propety changes
+        /// </summary>
+        /// <param name="propertyName">The property name</param>
+        public void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        /// <summary>
         /// Gets the description of the menu item
         /// </summary>
         public string Description
@@ -99,6 +108,10 @@ namespace DinoDiner.Menu
                 size = value;
                 Drink.Size = value;
                 Side.Size = value;
+                NotifyOfPropertyChange("Price");
+                NotifyOfPropertyChange("Description");
+                NotifyOfPropertyChange("Special");
+                NotifyOfPropertyChange("Size");
             }
         }
 

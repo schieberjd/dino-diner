@@ -48,6 +48,7 @@ namespace PointOfSale
             Sodasaurus soda = (Sodasaurus)SelectionPage.Drink;
             soda.MakeCherry();
             SelectionPage.Drink = soda;
+            SelectionPage.NotifyOfPropertyChange("Special");
             NavigationService.Navigate(SelectionPage);
         }
 
@@ -61,6 +62,7 @@ namespace PointOfSale
             Sodasaurus soda = (Sodasaurus)SelectionPage.Drink;
             soda.MakeChocolate();
             SelectionPage.Drink = soda;
+            SelectionPage.NotifyOfPropertyChange("Special");
             NavigationService.Navigate(SelectionPage);
         }
 
@@ -74,6 +76,7 @@ namespace PointOfSale
             Sodasaurus soda = (Sodasaurus)SelectionPage.Drink;
             soda.MakeCola();
             SelectionPage.Drink = soda;
+            SelectionPage.NotifyOfPropertyChange("Special");
             NavigationService.Navigate(SelectionPage);
         }
 
@@ -87,6 +90,7 @@ namespace PointOfSale
             Sodasaurus soda = (Sodasaurus)SelectionPage.Drink;
             soda.MakeLime();
             SelectionPage.Drink = soda;
+            SelectionPage.NotifyOfPropertyChange("Special");
             NavigationService.Navigate(SelectionPage);
         }
 
@@ -100,6 +104,7 @@ namespace PointOfSale
             Sodasaurus soda = (Sodasaurus)SelectionPage.Drink;
             soda.MakeOrange();
             SelectionPage.Drink = soda;
+            SelectionPage.NotifyOfPropertyChange("Special");
             NavigationService.Navigate(SelectionPage);
         }
 
@@ -113,6 +118,7 @@ namespace PointOfSale
             Sodasaurus soda = (Sodasaurus)SelectionPage.Drink;
             soda.MakeRootBeer();
             SelectionPage.Drink = soda;
+            SelectionPage.NotifyOfPropertyChange("Special");
             NavigationService.Navigate(SelectionPage);
         }
 
@@ -126,6 +132,7 @@ namespace PointOfSale
             Sodasaurus soda = (Sodasaurus)SelectionPage.Drink;
             soda.MakeVanilla();
             SelectionPage.Drink = soda;
+            SelectionPage.NotifyOfPropertyChange("Special");
             NavigationService.Navigate(SelectionPage);
         }
     }

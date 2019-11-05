@@ -1,4 +1,4 @@
-﻿/* CustomizePrehistoricPBJ.xaml.cs
+﻿/* CustomizeBrontowurst.xaml.cs
  * Author: Justin Schieber
  */
  
@@ -21,12 +21,12 @@ using DinoDiner.Menu;
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for CustomizePrehistoricPBJ.xaml
+    /// Interaction logic for CustomizeBrontowurst.xaml
     /// </summary>
-    public partial class CustomizePrehistoricPBJ : Page
+    public partial class CustomizeBrontowurst : Page
     {
         //Backing variable
-        private PrehistoricPBJ pbj;
+        private Brontowurst bronto;
 
         /// <summary>
         /// Whether or not we are working with a combo
@@ -41,25 +41,25 @@ namespace PointOfSale
         /// <summary>
         /// Contructs a new customize page
         /// </summary>
-        /// <param name="pbj">The item to customize</param>
-        public CustomizePrehistoricPBJ(PrehistoricPBJ pbj)
+        /// <param name="bronto">The item to customize</param>
+        public CustomizeBrontowurst(Brontowurst bronto)
         {
             InitializeComponent();
-            this.pbj = pbj;
+            this.bronto = bronto;
         }
 
         /// <summary>
         /// Creates a new customize entree page
         /// </summary>
-        /// <param name="pbj">The current PrehistoricPBJ</param>
+        /// <param name="bronto">The current brontowurst</param>
         /// <param name="comboPage">The customize combo page</param>
-        public CustomizePrehistoricPBJ(PrehistoricPBJ pbj, CustomizeCombo comboPage)
+        public CustomizeBrontowurst(Brontowurst bronto, CustomizeCombo comboPage)
         {
             InitializeComponent();
             isCombo = true;
             this.comboPage = comboPage;
-            this.comboPage.Combo.Entree = pbj;
-            this.pbj = (PrehistoricPBJ)comboPage.Combo.Entree;
+            this.comboPage.Combo.Entree = bronto;
+            this.bronto = (Brontowurst)comboPage.Combo.Entree;
         }
 
         /// <summary>
@@ -75,24 +75,35 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// Holds the jelly for the sandwich
+        /// Holds the bun
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        private void OnHoldPeanutButter(object sender, RoutedEventArgs args)
+        private void OnHoldBun(object sender, RoutedEventArgs args)
         {
-            pbj.HoldPeanutButter();
+            bronto.HoldBun();
             NotifyOfPropertyChange("Special");
         }
 
         /// <summary>
-        /// Holds the peanut butter for the sandwich
+        /// Holds the peppers
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        private void OnHoldJelly(object sender, RoutedEventArgs args)
+        private void OnHoldPeppers(object sender, RoutedEventArgs args)
         {
-            pbj.HoldJelly();
+            bronto.HoldPeppers();
+            NotifyOfPropertyChange("Special");
+        }
+
+        /// <summary>
+        /// Holds the onion
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void OnHoldOnion(object sender, RoutedEventArgs args)
+        {
+            bronto.HoldOnion();
             NotifyOfPropertyChange("Special");
         }
 

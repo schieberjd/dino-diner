@@ -83,6 +83,7 @@ namespace DinoDiner.Menu
                     else if (size == Size.Medium) this.Calories = 16;
                     else this.Calories = 32;
                 }
+                NotifyOfPropertyChange("Description");
             }
             get
             {
@@ -183,6 +184,8 @@ namespace DinoDiner.Menu
                             break;
                     }
                 }
+                NotifyOfPropertyChange("Price");
+                NotifyOfPropertyChange("Description");
             }
 
             get

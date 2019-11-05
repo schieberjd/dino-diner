@@ -1,4 +1,4 @@
-﻿/* CustomizePrehistoricPBJ.xaml.cs
+﻿/* CustomizeSteakosaurusBurger.xaml.cs
  * Author: Justin Schieber
  */
  
@@ -21,12 +21,12 @@ using DinoDiner.Menu;
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for CustomizePrehistoricPBJ.xaml
+    /// Interaction logic for CustomizeSteakosaurusBurger.xaml
     /// </summary>
-    public partial class CustomizePrehistoricPBJ : Page
+    public partial class CustomizeSteakosaurusBurger : Page
     {
         //Backing variable
-        private PrehistoricPBJ pbj;
+        private SteakosaurusBurger burger;
 
         /// <summary>
         /// Whether or not we are working with a combo
@@ -41,25 +41,25 @@ namespace PointOfSale
         /// <summary>
         /// Contructs a new customize page
         /// </summary>
-        /// <param name="pbj">The item to customize</param>
-        public CustomizePrehistoricPBJ(PrehistoricPBJ pbj)
+        /// <param name="burger">The item to customize</param>
+        public CustomizeSteakosaurusBurger(SteakosaurusBurger burger)
         {
             InitializeComponent();
-            this.pbj = pbj;
+            this.burger = burger;
         }
 
         /// <summary>
         /// Creates a new customize entree page
         /// </summary>
-        /// <param name="pbj">The current PrehistoricPBJ</param>
+        /// <param name="burger">The current SteakosaurusBurger</param>
         /// <param name="comboPage">The customize combo page</param>
-        public CustomizePrehistoricPBJ(PrehistoricPBJ pbj, CustomizeCombo comboPage)
+        public CustomizeSteakosaurusBurger(SteakosaurusBurger burger, CustomizeCombo comboPage)
         {
             InitializeComponent();
             isCombo = true;
             this.comboPage = comboPage;
-            this.comboPage.Combo.Entree = pbj;
-            this.pbj = (PrehistoricPBJ)comboPage.Combo.Entree;
+            this.comboPage.Combo.Entree = burger;
+            this.burger = (SteakosaurusBurger)comboPage.Combo.Entree;
         }
 
         /// <summary>
@@ -75,24 +75,46 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// Holds the jelly for the sandwich
+        /// Holds the bun
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        private void OnHoldPeanutButter(object sender, RoutedEventArgs args)
+        private void OnHoldBun(object sender, RoutedEventArgs args)
         {
-            pbj.HoldPeanutButter();
+            burger.HoldBun();
             NotifyOfPropertyChange("Special");
         }
 
         /// <summary>
-        /// Holds the peanut butter for the sandwich
+        /// Holds the pickle
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        private void OnHoldJelly(object sender, RoutedEventArgs args)
+        private void OnHoldPickle(object sender, RoutedEventArgs args)
         {
-            pbj.HoldJelly();
+            burger.HoldPickle();
+            NotifyOfPropertyChange("Special");
+        }
+
+        /// <summary>
+        /// Holds the mustard
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void OnHoldMustard(object sender, RoutedEventArgs args)
+        {
+            burger.HoldMustard();
+            NotifyOfPropertyChange("Special");
+        }
+
+        /// <summary>
+        /// Holds the ketchup
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void OnHoldKetchup(object sender, RoutedEventArgs args)
+        {
+            burger.HoldKetchup();
             NotifyOfPropertyChange("Special");
         }
 

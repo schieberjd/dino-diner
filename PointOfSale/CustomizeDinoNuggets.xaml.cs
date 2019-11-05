@@ -1,4 +1,4 @@
-﻿/* CustomizePrehistoricPBJ.xaml.cs
+﻿/* CustomizeDinoNuggets.xaml.cs
  * Author: Justin Schieber
  */
  
@@ -21,12 +21,12 @@ using DinoDiner.Menu;
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for CustomizePrehistoricPBJ.xaml
+    /// Interaction logic for CustomizeDinoNuggets.xaml
     /// </summary>
-    public partial class CustomizePrehistoricPBJ : Page
+    public partial class CustomizeDinoNuggets : Page
     {
         //Backing variable
-        private PrehistoricPBJ pbj;
+        private DinoNuggets dino;
 
         /// <summary>
         /// Whether or not we are working with a combo
@@ -41,25 +41,25 @@ namespace PointOfSale
         /// <summary>
         /// Contructs a new customize page
         /// </summary>
-        /// <param name="pbj">The item to customize</param>
-        public CustomizePrehistoricPBJ(PrehistoricPBJ pbj)
+        /// <param name="dino">The item to customize</param>
+        public CustomizeDinoNuggets(DinoNuggets dino)
         {
             InitializeComponent();
-            this.pbj = pbj;
+            this.dino = dino;
         }
 
         /// <summary>
         /// Creates a new customize entree page
         /// </summary>
-        /// <param name="pbj">The current PrehistoricPBJ</param>
+        /// <param name="dino">The current dinonugget</param>
         /// <param name="comboPage">The customize combo page</param>
-        public CustomizePrehistoricPBJ(PrehistoricPBJ pbj, CustomizeCombo comboPage)
+        public CustomizeDinoNuggets(DinoNuggets dino, CustomizeCombo comboPage)
         {
             InitializeComponent();
             isCombo = true;
             this.comboPage = comboPage;
-            this.comboPage.Combo.Entree = pbj;
-            this.pbj = (PrehistoricPBJ)comboPage.Combo.Entree;
+            this.comboPage.Combo.Entree = dino;
+            this.dino = (DinoNuggets)comboPage.Combo.Entree;
         }
 
         /// <summary>
@@ -75,25 +75,15 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// Holds the jelly for the sandwich
+        /// Adds a nugget
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        private void OnHoldPeanutButter(object sender, RoutedEventArgs args)
+        private void OnAddNugget(object sender, RoutedEventArgs args)
         {
-            pbj.HoldPeanutButter();
+            dino.AddNugget();
             NotifyOfPropertyChange("Special");
-        }
-
-        /// <summary>
-        /// Holds the peanut butter for the sandwich
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="args"></param>
-        private void OnHoldJelly(object sender, RoutedEventArgs args)
-        {
-            pbj.HoldJelly();
-            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Price");
         }
 
         /// <summary>

@@ -69,7 +69,7 @@ namespace PointOfSale
         {
             Brontowurst b = new Brontowurst();
             SelectEntree(b);
-            //NavigationService.Navigate(new CustomizeBrontowurst(b));
+            NavigationService.Navigate(new CustomizeBrontowurst(b));
         }
 
         /// <summary>
@@ -81,7 +81,7 @@ namespace PointOfSale
         {
             DinoNuggets d = new DinoNuggets();
             SelectEntree(d);
-            //NavigationService.Navigate(new CustomizeDinoNuggets(d));
+            NavigationService.Navigate(new CustomizeDinoNuggets(d));
         }
 
         /// <summary>
@@ -103,9 +103,7 @@ namespace PointOfSale
         /// <param name="args"></param>
         protected void SelectPterodactylWings(object sender, RoutedEventArgs args)
         {
-            PterodactylWings p = new PterodactylWings();
-            SelectEntree(p);
-            //NavigationService.Navigate(new CustomizePterodactylWings(p));
+            SelectEntree(new PterodactylWings());
         }
 
         /// <summary>
@@ -117,7 +115,7 @@ namespace PointOfSale
         {
             SteakosaurusBurger s = new SteakosaurusBurger();
             SelectEntree(s);
-            //NavigationService.Navigate(new CustomizeSteakosaurusBurger(s));
+            NavigationService.Navigate(new CustomizeSteakosaurusBurger(s));
         }
 
         /// <summary>
@@ -129,7 +127,7 @@ namespace PointOfSale
         {
             TRexKingBurger t = new TRexKingBurger();
             SelectEntree(t);
-            //NavigationService.Navigate(new CustomizeTRexKingBurger(t));
+            NavigationService.Navigate(new CustomizeTRexKingBurger(t));
         }
 
         /// <summary>
@@ -141,7 +139,7 @@ namespace PointOfSale
         {
             VelociWrap v = new VelociWrap();
             SelectEntree(v);
-            //NavigationService.Navigate(new CustomizeVelociWrap(v));
+            NavigationService.Navigate(new CustomizeVelociWrap(v));
         }
     }
 }

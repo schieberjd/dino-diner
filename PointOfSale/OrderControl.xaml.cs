@@ -47,11 +47,11 @@ namespace PointOfSale
         {
             if (OrderItems.SelectedItem is Side side)
             {
-                NavigationService?.Navigate(new SideSelection(side));
+                NavigationService?.Navigate(new SideSelection(side, false, null));
             }
             else if (OrderItems.SelectedItem is Drink drink)
             {
-                NavigationService?.Navigate(new DrinkSelection(drink));
+                NavigationService?.Navigate(new DrinkSelection(drink, false, null));
             }
             else if (OrderItems.SelectedItem is Entree entree)
             {
@@ -59,17 +59,13 @@ namespace PointOfSale
                 {
                     NavigationService?.Navigate(new CustomizePrehistoricPBJ(p));
                 }
-                /*else if (entree is Brontowurst b)
+                else if (entree is Brontowurst b)
                 {
                     NavigationService?.Navigate(new CustomizeBrontowurst(b));
                 }
                 else if (entree is DinoNuggets d)
                 {
                     NavigationService?.Navigate(new CustomizeDinoNuggets(d));
-                }
-                else if (entree is PterodactylWings pw)
-                {
-                    NavigationService?.Navigate(new CustomizePterodactylWings(pw));
                 }
                 else if (entree is SteakosaurusBurger s)
                 {
@@ -82,7 +78,11 @@ namespace PointOfSale
                 else if (entree is VelociWrap v)
                 {
                     NavigationService?.Navigate(new CustomizeVelociWrap(v));
-                }*/
+                }
+            }
+            else if (OrderItems.SelectedItem is CretaceousCombo combo)
+            {
+                NavigationService?.Navigate(new CustomizeCombo(combo));
             }
         }
 

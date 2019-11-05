@@ -6,13 +6,16 @@
       xmlns:local="clr-namespace:PointOfSale"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Customize Combo">
+      Title="Customize Combo"
+      Loaded="OnPageLoaded">
+      
 
     <Grid>
         <Label HorizontalContentAlignment="Center" Content="Add to Order" FontSize="16"/>
         <Label Margin="0,20,0,0" HorizontalContentAlignment="Center" Content="Customize Combo" FontSize="16"/>
-        <Label Margin="0,40,0,0" HorizontalContentAlignment="Left" Content="Side" FontSize="16"/>
-        <Label Margin="0,40,0,0" HorizontalContentAlignment="Right" Content="Drink" FontSize="16"/>
+        <Label Margin="0,40,0,0" HorizontalContentAlignment="Left" Content="Edit Entree" FontSize="16"/>
+        <Label Margin="0,40,0,0" HorizontalContentAlignment="Center" Content="Change Side" FontSize="16"/>
+        <Label Margin="0,40,0,0" HorizontalContentAlignment="Right" Content="Change Drink" FontSize="16"/>
         <Grid Margin="0,75,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -21,18 +24,29 @@
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition/>
-                <RowDefinition Height="40"/>
+                <RowDefinition Height="50"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Button Grid.Column="0" Grid.Row="0" Content="Fryceritops" FontSize="16" Click="SelectSide"/>
-            <Button Grid.Column="2" Grid.Row="0" Content="Sodasaurus" FontSize="16" Click="SelectDrink"/>
-            <Label Grid.Column="1" Grid.Row="1" Content="Size" FontSize="16" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center"/>
-            <Border Background="#FFDDDDDD" BorderThickness="1" BorderBrush="#FF707070" Grid.Column="0" Grid.Row="2"/>
-            <Border Background="#FFDDDDDD" BorderThickness="1" BorderBrush="#FF707070" Grid.Column="1" Grid.Row="2"/>
-            <Border Background="#FFDDDDDD" BorderThickness="1" BorderBrush="#FF707070" Grid.Column="2" Grid.Row="2"/>
-            <RadioButton Grid.Column="0" Grid.Row="2" Content="Small" FontSize="16" IsChecked="true" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-            <RadioButton Grid.Column="1" Grid.Row="2" Content="Medium" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-            <RadioButton Grid.Column="2" Grid.Row="2" Content="Large" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Button Name="CurrentEntree" Grid.Column="0" Grid.Row="0" FontSize="16" Click="SelectEntree">
+                <Button.Content>
+                    <TextBlock TextWrapping="Wrap"/>
+                </Button.Content>
+            </Button>
+            <Button Name="CurrentSide" Grid.Column="1" Grid.Row="0" FontSize="16" Click="SelectSide">
+                <Button.Content>
+                    <TextBlock TextWrapping="Wrap"/>
+                </Button.Content>
+            </Button>
+            <Button Name="CurrentDrink" Grid.Column="2" Grid.Row="0" FontSize="16" Click="SelectDrink">
+                <Button.Content>
+                    <TextBlock TextWrapping="Wrap"/>
+                </Button.Content>
+            </Button>
+            <Label Grid.Column="0" Grid.Row="1" Content="Size" FontSize="16" VerticalContentAlignment="Bottom"/>
+            <Button Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Click="OnDone" Content="Done" FontSize="16" Background="#FFE58585" Foreground="White"/>
+            <Button Grid.Column="0" Grid.Row="2" Click="SelectSmall" Content="Small" FontSize="16"/>
+            <Button Grid.Column="1" Grid.Row="2" Click="SelectMedium" Content="Medium" FontSize="16"/>
+            <Button Grid.Column="2" Grid.Row="2" Click="SelectLarge" Content="Large" FontSize="16"/>
         </Grid>
     </Grid>
 </Page>

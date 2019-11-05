@@ -14,10 +14,8 @@ namespace DinoDiner.Menu
     /// </summary>
     public class Sodasaurus : Drink, IMenuItem, IOrderItem, INotifyPropertyChanged
     {
-        /// <summary>
-        /// The size of the Sodasaurus
-        /// </summary>
         private Size size;
+        private SodasaurusFlavor flavor;
 
         /// <summary>
         /// Gets the description of the menu item
@@ -60,7 +58,19 @@ namespace DinoDiner.Menu
         /// <summary>
         /// The flavor of the Sodasaurus
         /// </summary>
-        public SodasaurusFlavor Flavor { get; set; }
+        public SodasaurusFlavor Flavor
+        {
+            set
+            {
+                flavor = value;
+                NotifyOfPropertyChange("Description");
+                NotifyOfPropertyChange("Flavor");
+            }
+            get
+            {
+                return flavor;
+            }
+        }
 
         /// <summary>
         /// The ingredients of the current menu item
@@ -100,6 +110,10 @@ namespace DinoDiner.Menu
                         Calories = 112;
                         break;
                 }
+                NotifyOfPropertyChange("Price");
+                NotifyOfPropertyChange("Description");
+                NotifyOfPropertyChange("Size");
+                NotifyOfPropertyChange("Calories");
             }
 
             get

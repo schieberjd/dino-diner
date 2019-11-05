@@ -31,6 +31,16 @@ namespace PointOfSale
         public Side Side { get; set; }
 
         /// <summary>
+        /// Whether or not we are working with a combo
+        /// </summary>
+        private bool isCombo;
+
+        /// <summary>
+        /// The Customize Combo page
+        /// </summary>
+        private CustomizeCombo comboPage;
+
+        /// <summary>
         /// Creates a new side selection page
         /// </summary>
         public SideSelection()
@@ -39,13 +49,37 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// Creates a new side selection page with a saved side
+        /// Creates a new side selection page
         /// </summary>
         /// <param name="side">The saved side</param>
-        public SideSelection(Side side)
+        /// <param name="isCombo">If it's a combo</param>
+        /// <param name="comboPage">The customize combo page</param>
+        public SideSelection(Side side, bool isCombo, CustomizeCombo comboPage)
         {
             InitializeComponent();
-            Side = side;
+            this.isCombo = isCombo;
+            this.comboPage = comboPage;
+            if (this.isCombo)
+            {
+                this.comboPage.Combo.Side = side;
+                Side = comboPage.Combo.Side;
+            }
+            else
+            {
+                Side = side;
+            }
+        }
+
+        /// <summary>
+        /// Notifies of a combo property change
+        /// </summary>
+        /// <param name="propertyName">The property name</param>
+        public void NotifyOfPropertyChange(string propertyName)
+        {
+            if (isCombo)
+            {
+                comboPage.Combo.NotifyOfPropertyChange(propertyName);
+            }
         }
 
         /// <summary>
@@ -54,10 +88,20 @@ namespace PointOfSale
         /// <param name="side">The saved side</param>
         private void SelectSide(Side side)
         {
-            if (DataContext is Order order)
+            if (isCombo)
             {
-                order.Add(side);
-                Side = side;
+                comboPage.Combo.Side = side;
+                Side = comboPage.Combo.Side;
+                NotifyOfPropertyChange("Special");
+                NotifyOfPropertyChange("Price");
+            }
+            else
+            {
+                if (DataContext is Order order)
+                {
+                    order.Add(side);
+                    Side = side;
+                }
             }
         }
 
@@ -81,7 +125,18 @@ namespace PointOfSale
                 {
                     Side.MakeLarge();
                 }
-                NavigationService.Navigate(new MenuCategorySelection());
+
+                NotifyOfPropertyChange("Special");
+                NotifyOfPropertyChange("Price");
+
+                if (NavigationService.CanGoBack)
+                {
+                    NavigationService.GoBack();
+                }
+                else
+                {
+                    NavigationService.Navigate(new MenuCategorySelection());
+                }
             }
         }
 

@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:PointOfSale"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Combo Selection">
+      Title="ComboSelection">
 
     <Grid>
         <Label HorizontalContentAlignment="Center" Content="Add to Order" FontSize="16"/>
@@ -21,13 +21,13 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Button Grid.Column="0" Grid.Row="0" Content="Brontowurst Combo" Click="CustomizeCombo" FontSize="16"/>
-            <Button Grid.Column="1" Grid.Row="0" Content="Dino-Nuggets Combo" Click="CustomizeCombo" FontSize="16"/>
-            <Button Grid.Column="2" Grid.Row="0" Content="Prehistoric PB&amp;J Combo" Click="CustomizeCombo" FontSize="16"/>
-            <Button Grid.Column="0" Grid.Row="1" Content="Pterodactyl Wings Combo" Click="CustomizeCombo" FontSize="16"/>
-            <Button Grid.Column="1" Grid.Row="1" Content="Steakosaurus Burger Combo" Click="CustomizeCombo" FontSize="16"/>
-            <Button Grid.Column="2" Grid.Row="1" Content="T-Rex King Burger Combo" Click="CustomizeCombo" FontSize="16"/>
-            <Button Grid.Column="0" Grid.Row="2" Content="Veloci-Wrap Combo" Click="CustomizeCombo" FontSize="16"/>
+            <Button Grid.Column="0" Grid.Row="0" Content="Brontowurst Combo" Click="SelectBrontowurst" FontSize="16"/>
+            <Button Grid.Column="1" Grid.Row="0" Content="Dino-Nuggets Combo" Click="SelectDinoNuggets" FontSize="16"/>
+            <Button Grid.Column="2" Grid.Row="0" Content="Prehistoric PB&amp;J Combo" Click="SelectPrehistoricPBJ" FontSize="16"/>
+            <Button Grid.Column="0" Grid.Row="1" Content="Pterodactyl Wings Combo" Click="SelectPterodactylWings" FontSize="16"/>
+            <Button Grid.Column="1" Grid.Row="1" Content="Steakosaurus Burger Combo" Click="SelectSteakosaurusBurger" FontSize="16"/>
+            <Button Grid.Column="2" Grid.Row="1" Content="T-Rex King Burger Combo" Click="SelectTRexKingBurger" FontSize="16"/>
+            <Button Grid.Column="0" Grid.Row="2" Content="Veloci-Wrap Combo" Click="SelectVelociWrap" FontSize="16"/>
         </Grid>
     </Grid>
 </Page>

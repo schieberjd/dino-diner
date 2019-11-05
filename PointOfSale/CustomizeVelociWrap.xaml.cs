@@ -1,4 +1,4 @@
-﻿/* CustomizePrehistoricPBJ.xaml.cs
+﻿/* CustomizeVelociWrap.xaml.cs
  * Author: Justin Schieber
  */
  
@@ -21,12 +21,12 @@ using DinoDiner.Menu;
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for CustomizePrehistoricPBJ.xaml
+    /// Interaction logic for CustomizeVelociWrap.xaml
     /// </summary>
-    public partial class CustomizePrehistoricPBJ : Page
+    public partial class CustomizeVelociWrap : Page
     {
         //Backing variable
-        private PrehistoricPBJ pbj;
+        private VelociWrap wrap;
 
         /// <summary>
         /// Whether or not we are working with a combo
@@ -41,25 +41,25 @@ namespace PointOfSale
         /// <summary>
         /// Contructs a new customize page
         /// </summary>
-        /// <param name="pbj">The item to customize</param>
-        public CustomizePrehistoricPBJ(PrehistoricPBJ pbj)
+        /// <param name="wrap">The item to customize</param>
+        public CustomizeVelociWrap(VelociWrap wrap)
         {
             InitializeComponent();
-            this.pbj = pbj;
+            this.wrap = wrap;
         }
 
         /// <summary>
         /// Creates a new customize entree page
         /// </summary>
-        /// <param name="pbj">The current PrehistoricPBJ</param>
+        /// <param name="wrap">The current VelociWrap</param>
         /// <param name="comboPage">The customize combo page</param>
-        public CustomizePrehistoricPBJ(PrehistoricPBJ pbj, CustomizeCombo comboPage)
+        public CustomizeVelociWrap(VelociWrap wrap, CustomizeCombo comboPage)
         {
             InitializeComponent();
             isCombo = true;
             this.comboPage = comboPage;
-            this.comboPage.Combo.Entree = pbj;
-            this.pbj = (PrehistoricPBJ)comboPage.Combo.Entree;
+            this.comboPage.Combo.Entree = wrap;
+            this.wrap = (VelociWrap)comboPage.Combo.Entree;
         }
 
         /// <summary>
@@ -75,24 +75,35 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// Holds the jelly for the sandwich
+        /// Holds the dressing
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        private void OnHoldPeanutButter(object sender, RoutedEventArgs args)
+        private void OnHoldDressing(object sender, RoutedEventArgs args)
         {
-            pbj.HoldPeanutButter();
+            wrap.HoldDressing();
             NotifyOfPropertyChange("Special");
         }
 
         /// <summary>
-        /// Holds the peanut butter for the sandwich
+        /// Holds the lettuce
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        private void OnHoldJelly(object sender, RoutedEventArgs args)
+        private void OnHoldLettuce(object sender, RoutedEventArgs args)
         {
-            pbj.HoldJelly();
+            wrap.HoldLettuce();
+            NotifyOfPropertyChange("Special");
+        }
+
+        /// <summary>
+        /// Holds the cheese
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void OnHoldCheese(object sender, RoutedEventArgs args)
+        {
+            wrap.HoldCheese();
             NotifyOfPropertyChange("Special");
         }
 

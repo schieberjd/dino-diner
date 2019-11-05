@@ -31,6 +31,16 @@ namespace PointOfSale
         public Drink Drink { get; set; }
 
         /// <summary>
+        /// Whether or not we are working with a combo
+        /// </summary>
+        private bool isCombo;
+
+        /// <summary>
+        /// The Customize Combo page
+        /// </summary>
+        private CustomizeCombo comboPage;
+
+        /// <summary>
         /// The hold ice button
         /// </summary>
         public Button holdIceButton = new Button();
@@ -101,6 +111,18 @@ namespace PointOfSale
         private bool holdIceAdded = false;
 
         /// <summary>
+        /// Notifies of a combo property change
+        /// </summary>
+        /// <param name="propertyName">The property name</param>
+        public void NotifyOfPropertyChange(string propertyName)
+        {
+            if (isCombo)
+            {
+                comboPage.Combo.NotifyOfPropertyChange(propertyName);
+            }
+        }
+
+        /// <summary>
         /// Initializes the form and buttons
         /// </summary>
         public DrinkSelection()
@@ -142,10 +164,20 @@ namespace PointOfSale
         /// <param name="drink">The selected drink</param>
         private void SelectDrink(Drink drink)
         {
-            if (DataContext is Order order)
+            if (isCombo)
             {
-                order.Add(drink);
-                Drink = drink;
+                comboPage.Combo.Drink = drink;
+                Drink = comboPage.Combo.Drink;
+                NotifyOfPropertyChange("Special");
+                NotifyOfPropertyChange("Price");
+            }
+            else
+            {
+                if (DataContext is Order order)
+                {
+                    order.Add(drink);
+                    Drink = drink;
+                }
             }
         }
 
@@ -169,6 +201,11 @@ namespace PointOfSale
                 {
                     Drink.MakeLarge();
                 }
+            }
+            if (isCombo)
+            {
+                NotifyOfPropertyChange("Special");
+                NotifyOfPropertyChange("Price");
             }
         }
 
@@ -203,13 +240,25 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// Creates a new drink selection page with a saved drink
+        /// Creates a new drink selection page
         /// </summary>
         /// <param name="drink">The saved drink</param>
-        public DrinkSelection(Drink drink)
+        /// <param name="isCombo">If it's a combo</param>
+        /// <param name="comboPage">The customize combo page</param>
+        public DrinkSelection(Drink drink, bool isCombo, CustomizeCombo comboPage)
         {
             InitializeComponent();
-            Drink = drink;
+            this.isCombo = isCombo;
+            this.comboPage = comboPage;
+            if (this.isCombo)
+            {
+                this.comboPage.Combo.Drink = drink;
+                Drink = comboPage.Combo.Drink;
+            }
+            else
+            {
+                Drink = drink;
+            }
 
             holdIceButton.Content = "Hold ice";
             holdIceButton.FontSize = 16;
@@ -299,6 +348,10 @@ namespace PointOfSale
             FlavorSelection fs = new FlavorSelection();
             fs.SelectionPage = this;
             NavigationService.Navigate(fs);
+            if (isCombo)
+            {
+                NotifyOfPropertyChange("Special");
+            }
         }
 
         /// <summary>
@@ -413,6 +466,11 @@ namespace PointOfSale
         protected void OnSelectSodasaurus()
         {
             SelectDrink(new Sodasaurus());
+            if (isCombo)
+            {
+                NotifyOfPropertyChange("Special");
+                NotifyOfPropertyChange("Price");
+            }
         }
 
         /// <summary>
@@ -450,6 +508,10 @@ namespace PointOfSale
             {
                 Drink.HoldIce();
             }
+            if (isCombo)
+            {
+                NotifyOfPropertyChange("Special");
+            }
         }
 
         /// <summary>
@@ -463,6 +525,10 @@ namespace PointOfSale
             {
                 Tyrannotea tea = (Tyrannotea)Drink;
                 tea.MakeSweet();
+            }
+            if (isCombo)
+            {
+                NotifyOfPropertyChange("Special");
             }
         }
 
@@ -478,6 +544,10 @@ namespace PointOfSale
                 JurassicJava java = (JurassicJava)Drink;
                 java.MakeDecaf();
             }
+            if (isCombo)
+            {
+                NotifyOfPropertyChange("Special");
+            }
         }
 
         /// <summary>
@@ -491,6 +561,10 @@ namespace PointOfSale
             {
                 JurassicJava java = (JurassicJava)Drink;
                 java.LeaveRoomForCream();
+            }
+            if (isCombo)
+            {
+                NotifyOfPropertyChange("Special");
             }
         }
 
@@ -514,6 +588,10 @@ namespace PointOfSale
                     water.AddLemon();
                 }
             }
+            if (isCombo)
+            {
+                NotifyOfPropertyChange("Special");
+            }
         }
 
         /// <summary>
@@ -528,6 +606,10 @@ namespace PointOfSale
                 JurassicJava java = (JurassicJava)Drink;
                 java.AddIce();
             }
+            if (isCombo)
+            {
+                NotifyOfPropertyChange("Special");
+            }
         }
 
         /// <summary>
@@ -537,7 +619,14 @@ namespace PointOfSale
         /// <param name="args"></param>
         protected void FinishDrink(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new MenuCategorySelection());
+            if (NavigationService.CanGoBack)
+            {
+                NavigationService.GoBack();
+            }
+            else
+            {
+                NavigationService.Navigate(new MenuCategorySelection());
+            }
         }
     }
 }
