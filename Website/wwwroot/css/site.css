@@ -12,4 +12,28 @@ body {
     padding-right: 15px;
 }
 
+#container {
+	display: flex;
+	flex-direction: row;
+}
+
+form {
+	background-color: lightgray;
+	padding: 20px;
+}
+
+.checkbox-list {
+	display: flex;
+	flex-direction: column;
+}
+
+.price-constraints {
+	display: flex;
+	flex-direction: column;
+}
+
+.ingredients-list {
+	display: flex;
+	flex-direction: column;
+}
 
