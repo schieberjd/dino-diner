@@ -148,6 +148,26 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
+        /// Makes the item medium for the website
+        /// </summary>
+        /// <returns>The medium item</returns>
+        public override Drink Medium()
+        {
+            this.Size = Size.Medium;
+            return this;
+        }
+
+        /// <summary>
+        /// Makes the item large for the website
+        /// </summary>
+        /// <returns>The large item</returns>
+        public override Drink Large()
+        {
+            this.Size = Size.Large;
+            return this;
+        }
+
+        /// <summary>
         /// Leaves room for cream in the drink
         /// </summary>
         public void LeaveRoomForCream()

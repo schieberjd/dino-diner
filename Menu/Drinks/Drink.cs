@@ -86,5 +86,17 @@ namespace DinoDiner.Menu
         /// Makes the item large
         /// </summary>
         public abstract void MakeLarge();
+
+        /// <summary>
+        /// Makes the drink medium for the website
+        /// </summary>
+        /// <returns>The medium drink</returns>
+        public abstract Drink Medium();
+
+        /// <summary>
+        /// Makes the drink large for the website
+        /// </summary>
+        /// <returns>The large drink</returns>
+        public abstract Drink Large();
     }
 }

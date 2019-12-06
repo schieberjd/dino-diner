@@ -9,7 +9,10 @@
 	#container {
 		display: flex;
 		flex-direction: row;
-		flex: 0 auto;
+	}
+
+	#results {
+		padding-right: 150px;
 	}
 
 	form {
@@ -37,136 +40,152 @@
 	<div id="results">
 		<h1>Menu</h1>
 
-		@foreach (IMenuItem item in Model.MenuItems)
+		@foreach (CretaceousCombo combo in Model.MenuItems.OfType<CretaceousCombo>())
 		{
-			if (item is CretaceousCombo)
-			{
-				<h2>Combos</h2>
-				break;
-			}
+			<h2>Cretaceous Combos</h2>
+			break;
 		}
 
-		@foreach (IMenuItem item in Model.MenuItems)
+		@foreach (CretaceousCombo combo in Model.MenuItems.OfType<CretaceousCombo>())
 		{
-			if (item is CretaceousCombo)
-			{
-				<div class="menu-item">
-					<h4>@item.ToString()</h4>
-					<p>Price: $@item.Price.ToString("0.00")</p>
-					<p>Calories: @item.Calories</p>
-					<p>
-						<text>Ingredients: </text>
-						@for (int i = 0; i < item.Ingredients.Count; i++)
-						{
-							@item.Ingredients[i].ToString()
-
-							if (i != item.Ingredients.Count - 1)
-							{
-								<text>, </text>
-							}
-						}
-					</p>
-				</div>
-			}
+			<div class="menu-item">
+				<h4>@combo.ToString()</h4>
+				<table border="1">
+					<tr>
+						<th>Size</th>
+						<th>Price</th>
+						<th>Calories</th>
+					</tr>
+					<tr>
+						<td>Small</td>
+						<td>$@combo.Price.ToString("0.00")</td>
+						<td>@combo.Calories</td>
+					</tr>
+					<tr>
+						<td>Medium</td>
+						<td>$@combo.Medium().Price.ToString("0.00")</td>
+						<td>@combo.Medium().Calories</td>
+					</tr>
+					<tr>
+						<td>Large</td>
+						<td>$@combo.Large().Price.ToString("0.00")</td>
+						<td>@combo.Large().Calories</td>
+					</tr>
+				</table>
+				<p>Ingredients:</p>
+				<ul>
+					@foreach (string ingredient in combo.Ingredients)
+					{
+						<li>@ingredient</li>
+					}
+				</ul>
+			</div>
 		}
 
-		@foreach (IMenuItem item in Model.MenuItems)
+		@foreach (Entree entree in Model.MenuItems.OfType<Entree>())
 		{
-			if (item is Entree)
-			{
-				<h2>Entrees</h2>
-				break;
-			}
+			<h2>Entrees</h2>
+			break;
 		}
 
-		@foreach (IMenuItem item in Model.MenuItems)
+		@foreach (Entree entree in Model.MenuItems.OfType<Entree>())
 		{
-			if (item is Entree)
-			{
-				<div class="menu-item">
-					<h4>@item.ToString()</h4>
-					<p>Price: $@item.Price.ToString("0.00")</p>
-					<p>Calories: @item.Calories</p>
-					<p>
-						<text>Ingredients: </text>
-						@for (int i = 0; i < item.Ingredients.Count; i++)
-						{
-							@item.Ingredients[i].ToString()
-
-							if (i != item.Ingredients.Count - 1)
-							{
-								<text>, </text>
-							}
-						}
-					</p>
-				</div>
-			}
+			<div class="menu-item">
+				<h4>@entree.ToString()</h4>
+				<p>Price: $@entree.Price.ToString("0.00")</p>
+				<p>Calories: @entree.Calories</p>
+				<p>Ingredients:</p>
+				<ul>
+					@foreach (string ingredient in entree.Ingredients)
+					{
+						<li>@ingredient</li>
+					}
+				</ul>
+			</div>
 		}
 
-		@foreach (IMenuItem item in Model.MenuItems)
+		@foreach (Side side in Model.MenuItems.OfType<Side>())
 		{
-			if (item is Side)
-			{
-				<h2>Sides</h2>
-				break;
-			}
+			<h2>Sides</h2>
+			break;
 		}
 
-		@foreach (IMenuItem item in Model.MenuItems)
+		@foreach (Side side in Model.MenuItems.OfType<Side>())
 		{
-			if (item is Side)
-			{
-				<div class="menu-item">
-					<h4>@item.ToString()</h4>
-					<p>Price: $@item.Price.ToString("0.00")</p>
-					<p>Calories: @item.Calories</p>
-					<p>
-						<text>Ingredients: </text>
-						@for (int i = 0; i < item.Ingredients.Count; i++)
-						{
-							@item.Ingredients[i].ToString()
-
-							if (i != item.Ingredients.Count - 1)
-							{
-								<text>, </text>
-							}
-						}
-					</p>
-				</div>
-			}
+			<div class="menu-item">
+				<h4>@side.ToString().Substring(side.ToString().IndexOf(" "))</h4>
+				<table border="1">
+					<tr>
+						<th>Size</th>
+						<th>Price</th>
+						<th>Calories</th>
+					</tr>
+					<tr>
+						<td>Small</td>
+						<td>$@side.Price.ToString("0.00")</td>
+						<td>@side.Calories</td>
+					</tr>
+					<tr>
+						<td>Medium</td>
+						<td>$@side.Medium().Price.ToString("0.00")</td>
+						<td>@side.Medium().Calories</td>
+					</tr>
+					<tr>
+						<td>Large</td>
+						<td>$@side.Large().Price.ToString("0.00")</td>
+						<td>@side.Large().Calories</td>
+					</tr>
+				</table>
+				<p>Ingredients:</p>
+				<ul>
+					@foreach (string ingredient in side.Ingredients)
+					{
+						<li>@ingredient</li>
+					}
+				</ul>
+			</div>
 		}
 
-		@foreach (IMenuItem item in Model.MenuItems)
+		@foreach (Drink drink in Model.MenuItems.OfType<Drink>())
 		{
-			if (item is Drink)
-			{
-				<h2>Drinks</h2>
-				break;
-			}
+			<h2>Drinks</h2>
+			break;
 		}
 
-		@foreach (IMenuItem item in Model.MenuItems)
+		@foreach (Drink drink in Model.MenuItems.OfType<Drink>())
 		{
-			if (item is Drink)
-			{
-				<div class="menu-item">
-					<h4>@item.ToString()</h4>
-					<p>Price: $@item.Price.ToString("0.00")</p>
-					<p>Calories: @item.Calories</p>
-					<p>
-						<text>Ingredients: </text>
-						@for (int i = 0; i < item.Ingredients.Count; i++)
-						{
-							@item.Ingredients[i].ToString()
-
-							if (i != item.Ingredients.Count - 1)
-							{
-								<text>, </text>
-							}
-						}
-					</p>
-				</div>
-			}
+			<div class="menu-item">
+				<h4>@drink.ToString().Substring(drink.ToString().IndexOf(" "))</h4>
+				<table border="1">
+					<tr>
+						<th>Size</th>
+						<th>Price</th>
+						<th>Calories</th>
+					</tr>
+					<tr>
+						<td>Small</td>
+						<td>$@drink.Price.ToString("0.00")</td>
+						<td>@drink.Calories</td>
+					</tr>
+					<tr>
+						<td>Medium</td>
+						<td>$@drink.Medium().Price.ToString("0.00")</td>
+						<td>@drink.Medium().Calories</td>
+					</tr>
+					<tr>
+						<td>Large</td>
+						<td>$@drink.Large().Price.ToString("0.00")</td>
+						<td>@drink.Large().Calories</td>
+					</tr>
+				</table>
+				<p>Ingredients:</p>
+				<ul>
+					@foreach (string ingredient in drink.Ingredients)
+					{
+						<li>@ingredient</li>
+					}
+				</ul>
+			</div>
 		}
 	</div>
 

@@ -116,6 +116,26 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
+        /// Makes the item medium for the website
+        /// </summary>
+        /// <returns>The medium item</returns>
+        public CretaceousCombo Medium()
+        {
+            this.Size = Size.Medium;
+            return this;
+        }
+
+        /// <summary>
+        /// Makes the item large for the website
+        /// </summary>
+        /// <returns>The large item</returns>
+        public CretaceousCombo Large()
+        {
+            this.Size = Size.Large;
+            return this;
+        }
+
+        /// <summary>
         /// Gets the list of ingredients for the combo
         /// </summary>
         public List<string> Ingredients

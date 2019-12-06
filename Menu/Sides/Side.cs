@@ -63,6 +63,18 @@ namespace DinoDiner.Menu
         public abstract void MakeLarge();
 
         /// <summary>
+        /// Makes the side medium for the website
+        /// </summary>
+        /// <returns>The medium side</returns>
+        public abstract Side Medium();
+
+        /// <summary>
+        /// Makes the side large for the website
+        /// </summary>
+        /// <returns>The large side</returns>
+        public abstract Side Large();
+
+        /// <summary>
         /// An event handler for property changes
         /// </summary>
         public virtual event PropertyChangedEventHandler PropertyChanged;

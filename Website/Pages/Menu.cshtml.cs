@@ -20,7 +20,7 @@ namespace Website.Pages
         /// <summary>
         /// The current list of menu items to display
         /// </summary>
-        public List<IMenuItem> MenuItems;
+        public IEnumerable<IMenuItem> MenuItems;
 
         /// <summary>
         /// The phrase to search for
@@ -69,27 +69,27 @@ namespace Website.Pages
 
             if (search != null)
             {
-                MenuItems = Menu.Search(MenuItems, search);
+                MenuItems = MenuItems.Where(item => item.ToString().ToLower().Contains(search.ToLower()));
             }
 
             if (menuCategory.Count != 0)
             {
-                MenuItems = Menu.FilterByCategory(MenuItems, menuCategory);
+                MenuItems = MenuItems.Where(item => (item is CretaceousCombo && menuCategory.Contains("Combo")) || (item is Entree && menuCategory.Contains("Entree")) || (item is Side && menuCategory.Contains("Side")) || (item is Drink && menuCategory.Contains("Drink")));
             }
 
             if (minimumPrice != null)
             {
-                MenuItems = Menu.FilterByMinPrice(MenuItems, (float)minimumPrice);
+                MenuItems = MenuItems.Where(item => item.Price >= minimumPrice);
             }
 
             if (maximumPrice != null)
             {
-                MenuItems = Menu.FilterByMaxPrice(MenuItems, (float)maximumPrice);
+                MenuItems = MenuItems.Where(item => item.Price <= maximumPrice);
             }
 
             if (excludeIngredient.Count != 0)
             {
-                MenuItems = Menu.FilterByIngredients(MenuItems, excludeIngredient);
+                MenuItems = MenuItems.Where(item => !item.Ingredients.Any(ingredient => excludeIngredient.Contains(ingredient)));
             }
         }
     }
